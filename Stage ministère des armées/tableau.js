@@ -1,6 +1,6 @@
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
-
+var cpt = 0;
 
 let dateInput = document.querySelector('#date');
 let heureInput = document.querySelector('#heure');
@@ -10,8 +10,29 @@ let evenementInput = document.querySelector('#evenement');
 let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
+function changeColor(color) { 
+        
+        document.body.style.backgroundColor= color;
+        
+}
 
+function pair(){
+        
+        
+    if(row%2 == 0){
+        var e = document.getElementsByTagName('tr');
+        e.style.color= '#009879';
+        e.style.backgrounColor= '#f3f3f3';
+        e.style.fontWeight= 'bold';
+    }
+
+    else{
+        e.style.backgrounColor= 'grey';
+    }
+
+}
 btnAdd.addEventListener('click', () => {
+    cpt++;
     let date = dateInput.value;
     let heure = heureInput.value;
     let coordonnees = coorconneesInput.value;
@@ -20,8 +41,10 @@ btnAdd.addEventListener('click', () => {
     let kia = kiaInput.value;
     let image = imageInput.value;
 
+    
+
     let template = `
-                <tr>
+                <tr id="row">
                     <td>${date}</td>
                     <td>${heure}</td>
                     <td>${coordonnees}</td>
@@ -32,4 +55,6 @@ btnAdd.addEventListener('click', () => {
                 </tr>`;
 
     table.innerHTML += template;
+
+   
 });

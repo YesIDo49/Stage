@@ -28,16 +28,33 @@
     border-bottom: 1px solid #dddddd;
   }
   
-  .content-table tbody tr:nth-of-type(even) {
+  .content-table tbody tr:nth-child(even) {
     background-color: #f3f3f3;
+    font-weight: bold;
+    color: #009879;
   }
+
+  .content-table tbody tr:nth-child(odd) {
+    color: blue;
+    font-weight: bold;
+  }*/
+
+ /*#row:nth-child(even) {
+    background-color: #f3f3f3;
+    font-weight: bold;
+    color: #009879;
+  }
+
+  #row{
+    color: blue;
+  }*/
   
   .content-table tbody:last-of-type {
     border-bottom: 2px solid #009879;
   }
   
-  .content-table tbody tr.active-row {
+  /*.content-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-  }
+  }*/
   
