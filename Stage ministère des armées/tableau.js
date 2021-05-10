@@ -11,9 +11,25 @@ let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
 function changeColor(color) { 
+        var e = document.getElementById('table')
+        var input = document.getElementsByTagName('button')
         
-        document.body.style.backgroundColor= color;
+
+        if (e.style.backgroundColor == color)
+    {
+        e.style.backgroundColor = 'white';
+    }
+    else                                     
+    {
+        e.style.backgroundColor= color;
+    }
         
+}
+
+function revenir(){
+    var e = document.getElementById('table')
+        
+        e.style.backgroundColor= 'purple';
 }
 
 function pair(){
