@@ -86,8 +86,8 @@ function pair(){
 
 }
 
-<!--Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton-->
-btnAdd.addEventListener('click', () => {
+<!--Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"-->
+document.getElementById("btnAjout").addEventListener("click", ()=> {
     cpt++;
     <!--Selection des valeurs entrees dans les champs-->
     let date = dateInput.value;
@@ -116,6 +116,7 @@ btnAdd.addEventListener('click', () => {
     <!--Notification de l'ajout d'une ligne-->
     alert("nouvelle ligne ajoutee au tableau");
 });
+
 
 <!--Suppression d'une ligne du tableau-->
 function supprimerLigne(e){
