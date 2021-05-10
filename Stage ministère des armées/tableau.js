@@ -11,23 +11,59 @@ let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
 function changeColor(color) { 
-        var e = document.getElementById('table')
-        var input = document.getElementsByTagName('button')
-        
-
-        if (e.style.backgroundColor == color)
-    {
-        e.style.backgroundColor = 'white';
-    }
-    else                                     
-    {
+        var e = document.getElementById('table');
+        var banniere = document.getElementById('banniere');
+        var ligneTitre = document.getElementById('ligneTitre');
         e.style.backgroundColor= color;
-    }
+        banniere.style.backgroundColor = color;
+        ligneTitre.style.backgroundColor = color;
         
 }
 
+function changer() {
+    var titre = prompt('Veuiller entrer le nom de votre entreprise...');
+    document.getElementById('banniere').innerHTML = titre;
+}
+
+function changer1() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('1').innerHTML = titre;
+}
+
+function changer2() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('2').innerHTML = titre;
+}
+
+function changer3() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('3').innerHTML = titre;
+}
+
+function changer4() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('4').innerHTML = titre;
+}
+
+function changer5() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('5').innerHTML = titre;
+}
+
+function changer6() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('6').innerHTML = titre;
+}
+
+function changer7() {
+    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    document.getElementById('7').innerHTML = titre;
+}
+
+
 function revenir(){
-    var e = document.getElementById('table')
+    var e = document.getElementById('table');
+
         
         e.style.backgroundColor= 'purple';
 }

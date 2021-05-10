@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="tableau.css">
         <link rel="shortcut icon" href="/assets/favicon.ico">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>Stage</title>
     </head>
-    <body>
+    <body><br>
+      <div class="container">
+        <div class="row">
+            <!--La classe bg-info ajoute un fond bleu à l'élément-->
+            <div class="col-2" id="logo">Logo</div>
+            <!--La classe bg-warning ajoute un fond jaune à l'élément-->
+            <div class="col-8" id="banniere" onclick="changer()">MON OPERATION</div>
+            <!--La classe bg-success ajoute un fond vert à l'élément-->
+            <div class="col-2" id="logo">Logo</div>
+        </div>
+    </div><br>
+      
 
         <h1>Section d'ajout</h1>
         <div id="data">
@@ -35,14 +48,14 @@
         <h1>Test Tableau</h1>
         <table class="content-table" id="table">
             <thead>
-              <tr>
-                <th>Date</th>
-                <th>Heure</th>
-                <th>Coordonees</th>
-                <th>Lieux</th>
-                <th>Evenements</th>
-                <th>KIA</th>
-                <th>Image</th>
+              <tr id="ligneTitre">
+                <th id="1" onclick="changer1()">Date</th>
+                <th id="2" onclick="changer2()">Heure</th>
+                <th id="3" onclick="changer3()">Coordonees</th>
+                <th id="4" onclick="changer4()">Lieux</th>
+                <th id="5" onclick="changer5()">Evenements</th>
+                <th id="6" onclick="changer6()">KIA</th>
+                <th id="7" onclick="changer7()">Image</th>
               </tr>
             </thead>
             <tbody>
