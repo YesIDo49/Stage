@@ -1,7 +1,9 @@
+<!--Selection des elements-->
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
 var cpt = 0;
 
+<!--Selection des elements qui vont etre importer dans le tableau-->
 let dateInput = document.querySelector('#date');
 let heureInput = document.querySelector('#heure');
 let coorconneesInput = document.querySelector('#coordonnees');
@@ -83,8 +85,11 @@ function pair(){
     }
 
 }
+
+<!--Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton-->
 btnAdd.addEventListener('click', () => {
     cpt++;
+    <!--Selection des valeurs entrees dans les champs-->
     let date = dateInput.value;
     let heure = heureInput.value;
     let coordonnees = coorconneesInput.value;
@@ -93,8 +98,7 @@ btnAdd.addEventListener('click', () => {
     let kia = kiaInput.value;
     let image = imageInput.value;
 
-    
-
+    <!--Creation d'un template pour les nouvelles lignes-->
     let template = `
                 <tr id="row">
                     <td>${date}</td>
@@ -104,9 +108,28 @@ btnAdd.addEventListener('click', () => {
                     <td>${evenement}</td>
                     <td>${kia}</td>
                     <td>${image}</td>
+                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
-
+    <!--Ajout du template au tableau-->
     table.innerHTML += template;
 
-   
+    <!--Notification de l'ajout d'une ligne-->
+    alert("nouvelle ligne ajoutee au tableau");
 });
+
+<!--Suppression d'une ligne du tableau-->
+function supprimerLigne(e){
+    <!--On ne supprime pas la ligne si on clique autre part que sur le bouton-->
+    if (!e.target.classList.contains("deleteBtn")) {
+        return;
+    }
+
+    <!--Le bouton est la cible-->
+    const btn = e.target;
+    <!--Supprime la ligne en cherchant le tr le plus proche-->
+    btn.closest("tr").remove();
+    alert("la ligne a ete supprimee");
+
+}
+
+table.addEventListener('click', supprimerLigne);

@@ -21,9 +21,10 @@
             <div class="col-2" id="logo">Logo</div>
         </div>
     </div><br>
-      
 
+        <!--Section necessaire à l'ajout d'un element dans le tableau-->
         <h1>Section d'ajout</h1>
+        <!--Creation des champs pour l'ajout et de leurs etiquettes-->
         <div id="data">
             <label for="date">Date</label>
             <input type="date" id="date" placeholder="Entrer date">
@@ -39,64 +40,77 @@
             <input type="number" id="kia" placeholder="Entrer KIA">
             <input type="file" id="image" placeholder="Entrer image">
 
+            <!--Bouton pour ajouter la ligne dans le tableau-->
             <button>Ajouter</button>
         </div><br>
+
         <button onclick = "changeColor('#6f6ff0a2');" onclick = "revenir()">Bleu</button>
         <button onclick = "changeColor('#085848');">Vert</button> 
         <button onclick = "changeColor('#f07474');">Rouge</button>
-        <button onclick = "changeColor('#ffffaa');">Jaune</button> 
-        <h1>Test Tableau</h1>
+        <button onclick = "changeColor('#ffffaa');">Jaune</button>
+
+        <!--Section d'affichage du tableau-->
+        <h1>Tableau</h1>
         <table class="content-table" id="table">
+            <!--Entete du tableau-->
             <thead>
-              <tr id="ligneTitre">
-                <th id="1" onclick="changer1()">Date</th>
-                <th id="2" onclick="changer2()">Heure</th>
-                <th id="3" onclick="changer3()">Coordonees</th>
-                <th id="4" onclick="changer4()">Lieux</th>
-                <th id="5" onclick="changer5()">Evenements</th>
-                <th id="6" onclick="changer6()">KIA</th>
-                <th id="7" onclick="changer7()">Image</th>
-              </tr>
+                <tr id="ligneTitre">
+                    <th id="1" onclick="changer1()">Date</th>
+                    <th id="2" onclick="changer2()">Heure</th>
+                    <th id="3" onclick="changer3()">Coordonees</th>
+                    <th id="4" onclick="changer4()">Lieux</th>
+                    <th id="5" onclick="changer5()">Evenements</th>
+                    <th id="6" onclick="changer6()">KIA</th>
+                    <th id="7" onclick="changer7()">Image</th>
+                    <!--Colonne pour les boutons-->
+                    <th>Options</th>
+                </tr>
             </thead>
+            <!--Corps du tableau-->
             <tbody>
-              <tr id="row">
-                <td>05/05/2021</td>
-                <td>13h05</td>
-                <td>34 56</td>
-                <td>Paris</td>
-                <td>Accident</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr id="row">
-                <td>05/05/2021</td>
-                <td>14h34</td>
-                <td>34 56</td>
-                <td>Paris</td>
-                <td>Accident</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr id="row">
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr id="row">
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <tr id="row">
+                    <td>05/05/2021</td>
+                    <td>13h05</td>
+                    <td>34 56</td>
+                    <td>Paris</td>
+                    <td>Accident</td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                </tr>
+                <tr id="row">
+                    <td>05/05/2021</td>
+                    <td>14h34</td>
+                    <td>34 56</td>
+                    <td>Paris</td>
+                    <td>Accident</td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                </tr>
+                <tr id="row">
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                </tr>
+                <tr id="row">
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                </tr>
             </tbody>
-          </table>
+        </table>
+
         <script src="tableau.js"></script>
     </body>
 </html>
