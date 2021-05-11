@@ -1,7 +1,7 @@
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
-var cpt = 0;
+let cpt = 0;
 
 //Selection des elements qui vont etre importer dans le tableau
 let dateInput = document.querySelector('#date');
@@ -13,8 +13,8 @@ let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
 //Selection des images pour les logos
-var img1 = document.getElementById("logo1");
-var img2 = document.getElementById("logo2");
+let img1 = document.getElementById("logo1");
+let img2 = document.getElementById("logo2");
 
 //Fonction de changement de logo pour l'armee de l'air et de l'espace
 function logoAir(){
@@ -83,9 +83,9 @@ $(document).on('focusout', '.cell', function(event)
 $(document).on('click', '.editBtn', function(event)
 {
     event.preventDefault();
-    var tbl_row = $(this).closest('tr');
+    let tbl_row = $(this).closest('tr');
 
-    var row_id = tbl_row.attr('row_id');
+    let row_id = tbl_row.attr('row_id');
 
     tbl_row.find('.saveBtn').show();
     tbl_row.find('.cancelBtn').show();
@@ -116,9 +116,9 @@ $(document).on('click', '.cancelBtn', function(event)
 {
     event.preventDefault();
 
-    var tbl_row = $(this).closest('tr');
+    let tbl_row = $(this).closest('tr');
 
-    var row_id = tbl_row.attr('row_id');
+    let row_id = tbl_row.attr('row_id');
 
     //hide save and cacel buttons
     tbl_row.find('.saveBtn').hide();
@@ -144,9 +144,9 @@ $(document).on('click', '.cancelBtn', function(event)
 $(document).on('click', '.saveBtn', function(event)
 {
     event.preventDefault();
-    var tbl_row = $(this).closest('tr');
+    let tbl_row = $(this).closest('tr');
 
-    var row_id = tbl_row.attr('row_id');
+    let row_id = tbl_row.attr('row_id');
 
 
     //hide save and cacel buttons
@@ -167,21 +167,20 @@ $(document).on('click', '.saveBtn', function(event)
 //--->save whole row entery > end
 
 function changeColor(color) {
-        var table = document.getElementById('table');
-        var banniere = document.getElementById('banniere');
-        var ligneTitre = document.getElementById('ligneTitre');
-        table.style.backgroundColor= color;
-        table.style.borderBottom= '2px solid'+ color;
-        table.style.opacity= '0.8';
-        table.style.color= 'black';
-        banniere.style.backgroundColor = color;
-        ligneTitre.style.backgroundColor = color;
-        ligneTitre.style.opacity = '1';
-
+    let table = document.getElementById('table');
+    let banniere = document.getElementById('banniere');
+    let ligneTitre = document.getElementById('ligneTitre');
+    table.style.backgroundColor= color;
+    table.style.borderBottom= '2px solid'+ color;
+    table.style.opacity= '0.8';
+    table.style.color= 'black';
+    banniere.style.backgroundColor = color;
+    ligneTitre.style.backgroundColor = color;
+    ligneTitre.style.opacity = '1';
 }
 
 function changer() {
-    var titre = prompt('Veuiller entrer le nom de votre entreprise...');
+    let titre = prompt('Veuiller entrer le nom de votre entreprise...');
     if(titre.onclick()){
         document.getElementById('banniere').innerHTML = titre;
     }
@@ -193,7 +192,7 @@ function changer() {
 }
 
 function changer1() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('1').innerHTML = titre;
     }
@@ -204,7 +203,7 @@ function changer1() {
 }
 
 function changer2() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('2').innerHTML = titre;
     }
@@ -215,7 +214,7 @@ function changer2() {
 }
 
 function changer3() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('3').innerHTML = titre;
     }
@@ -225,7 +224,7 @@ function changer3() {
     }
 }
 function changer4() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('4').innerHTML = titre;
     }
@@ -235,7 +234,7 @@ function changer4() {
     }
 }
 function changer5() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('5').innerHTML = titre;
     }
@@ -246,7 +245,7 @@ function changer5() {
 }
 
 function changer6() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('6').innerHTML = titre;
     }
@@ -257,7 +256,7 @@ function changer6() {
 }
 
 function changer7() {
-    var titre = prompt('Veuiller entrer le titre de la colonne...');
+    let titre = prompt('Veuiller entrer le titre de la colonne...');
     if(titre.onclick()){
         document.getElementById('7').innerHTML = titre;
     }
@@ -268,7 +267,7 @@ function changer7() {
 
 }
 function revenir(){
-    var e = document.getElementById('table');
+    let e = document.getElementById('table');
 
         
         e.style.backgroundColor= 'purple';
@@ -278,7 +277,7 @@ function pair(){
         
         
     if(row%2 == 0){
-        var e = document.getElementsByTagName('tr');
+        let e = document.getElementsByTagName('tr');
         e.style.color= '#009879';
         e.style.backgrounColor= '#f3f3f3';
         e.style.fontWeight= 'bold';
