@@ -12,7 +12,161 @@ let evenementInput = document.querySelector('#evenement');
 let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
-function changeColor(color) { 
+//Selection des images pour les logos
+var img1 = document.getElementById("logo1");
+var img2 = document.getElementById("logo2");
+
+//Fonction de changement de logo pour l'armee de l'air et de l'espace
+function logoAir(){
+    img1.src = 'images/air.png';
+    img2.src = 'images/air.png';
+}
+//Fonction de changement de logo pour l'armee de terre
+function logoTerre(){
+    img1.src = 'images/terre.png';
+    img2.src = 'images/terre.png';
+}
+//Fonction de changement de logo pour la marine nationale
+function logoMer(){
+    img1.src = 'images/marine.png';
+    img2.src = 'images/marine.png';
+}
+//Fonction de changement de logo pour le ministere des armees
+function logoArmee(){
+    img1.src = 'images/armée.png';
+    img2.src = 'images/armée.png';
+}
+
+//Cacher les boutons "Enregistrer" et "Annuler"
+$(document).find('.saveBtn').hide();
+$(document).find('.cancelBtn').hide();
+
+//Debut < On rend la cellule du tableau editable > Debut
+$(document).on('dblclick', '.cell', function(event)
+{
+    event.preventDefault();
+
+    if($(this).attr('edit_type') == 'button')
+    {
+        return false;
+    }
+
+    //make div editable
+    $(this).closest('div').attr('contenteditable', 'true');
+    //add bg css
+    $(this).addClass('bg-warning').css('padding','5px');
+
+    $(this).focus();
+})
+//Fin < On rend la cellule du tableau editable > Fin
+
+//Debut < On enregistre la modification de la cellule en cliquant autre part > Debut
+$(document).on('focusout', '.cell', function(event)
+{
+    event.preventDefault();
+
+    if($(this).attr('edit_type') == 'button')
+    {
+        return false;
+    }
+
+    $(this).closest('tr');
+
+    $(this)
+        .removeClass('bg-warning') //add bg css
+        .css('padding','')
+
+})
+//Fin < On enregistre la modification de la cellule en cliquant autre part > Fin
+
+//--->button > edit > start
+$(document).on('click', '.editBtn', function(event)
+{
+    event.preventDefault();
+    var tbl_row = $(this).closest('tr');
+
+    var row_id = tbl_row.attr('row_id');
+
+    tbl_row.find('.saveBtn').show();
+    tbl_row.find('.cancelBtn').show();
+
+    //hide edit button
+    tbl_row.find('.editBtn').hide();
+
+    //make the whole row editable
+    tbl_row.find('.cell')
+        .attr('contenteditable', 'true')
+        .attr('edit_type', 'button')
+        .addClass('bg-warning')
+        .css('padding','3px')
+
+    //--->add the original entry > start
+    tbl_row.find('.cell').each(function(index, val)
+    {
+        //this will help in case user decided to click on cancel button
+        $(this).attr('original_entry', $(this).html());
+    });
+    //--->add the original entry > end
+
+});
+//--->button > edit > end
+
+//--->button > cancel > start
+$(document).on('click', '.cancelBtn', function(event)
+{
+    event.preventDefault();
+
+    var tbl_row = $(this).closest('tr');
+
+    var row_id = tbl_row.attr('row_id');
+
+    //hide save and cacel buttons
+    tbl_row.find('.saveBtn').hide();
+    tbl_row.find('.cancelBtn').hide();
+
+    //show edit button
+    tbl_row.find('.editBtn').show();
+
+    //make the whole row editable
+    tbl_row.find('.cell')
+        .attr('edit_type', 'click')
+        .removeClass('bg-warning')
+        .css('padding','')
+
+    tbl_row.find('.cell').each(function(index, val)
+    {
+        $(this).html( $(this).attr('original_entry') );
+    });
+});
+//--->button > cancel > end
+
+//--->save whole row entery > start
+$(document).on('click', '.saveBtn', function(event)
+{
+    event.preventDefault();
+    var tbl_row = $(this).closest('tr');
+
+    var row_id = tbl_row.attr('row_id');
+
+
+    //hide save and cacel buttons
+    tbl_row.find('.saveBtn').hide();
+    tbl_row.find('.cancelBtn').hide();
+
+    //show edit button
+    tbl_row.find('.editBtn').show();
+
+
+    //make the whole row editable
+    tbl_row.find('.cell')
+        .attr('edit_type', 'click')
+        .removeClass('bg-warning')
+        .css('padding','')
+
+});
+//--->save whole row entery > end
+
+function changeColor(color) {
         var table = document.getElementById('table');
         var banniere = document.getElementById('banniere');
         var ligneTitre = document.getElementById('ligneTitre');
@@ -23,7 +177,7 @@ function changeColor(color) {
         banniere.style.backgroundColor = color;
         ligneTitre.style.backgroundColor = color;
         ligneTitre.style.opacity = '1';
-        
+
 }
 
 function changer() {
@@ -151,14 +305,14 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
     //Creation d'un template pour les nouvelles lignes
     let template = `
                 <tr id="row">
-                    <td>${date}</td>
-                    <td>${heure}</td>
-                    <td>${coordonnees}</td>
-                    <td>${lieu}</td>
-                    <td>${evenement}</td>
-                    <td>${kia}</td>
-                    <td>${image}</td>
-                    <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                    <td><div class="cell" edit_type="dblclick">${date}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${heure}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${coordonnees}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${lieu}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${evenement}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${kia}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${image}</div></td>
+                    <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
     //Ajout du template au tableau
     table.innerHTML += template;
@@ -184,3 +338,4 @@ function supprimerLigne(e){
 }
 
 table.addEventListener('click', supprimerLigne);
+

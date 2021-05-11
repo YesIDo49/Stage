@@ -6,8 +6,9 @@
         <link rel="stylesheet" href="tableau.css">
         <link rel="shortcut icon" href="/assets/favicon.ico">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="jquery-3.6.0.js"></script>
         <title>Stage</title>
     </head>
     <body><br>
@@ -17,6 +18,11 @@
         <button onclick = "changeColor('#085848');">Vert</button>
         <button onclick = "changeColor('#f07474');">Rouge</button>
         <button onclick = "changeColor('#8a8324');">Jaune</button>
+        <br><br>
+        <button onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
+        <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>
+        <button onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
+        <button onclick="logoMer()" id="logoMer">Marine nationale</button>
     </div>
 
     <br>
@@ -25,13 +31,13 @@
         <div class="row">
             <!--La classe bg-info ajoute un fond bleu à l'élément-->
             <div class="col-2">
-                <img id="logo" src="images/Ministère_des_Armées.svg.png">
+                <img id="logo1" src="images/armée.png">
             </div>
             <!--La classe bg-warning ajoute un fond jaune à l'élément-->
             <div class="col-8" id="banniere" onclick="changer()"><h1>MON OPERATION</h1></div>
             <!--La classe bg-success ajoute un fond vert à l'élément-->
             <div class="col-2">
-                <img id="logo" src="images/Ministère_des_Armées.svg.png">
+                <img id="logo2" src="images/armée.png">
             </div>
         </div>
     </div>
@@ -67,7 +73,7 @@
     <div id="divTableau">
         <!--Section d'affichage du tableau-->
         <h2>Tableau</h2>
-        <table class="content-table" >
+        <table class="content-table table-hover" >
             <!--Entete du tableau-->
             <thead>
             <tr id="ligneTitre">
@@ -85,44 +91,44 @@
             <!--Corps du tableau-->
             <tbody id="table">
             <tr id="row">
-                <td>05/05/2021</td>
-                <td>13h05</td>
-                <td>34 56</td>
-                <td>Paris</td>
-                <td>Accident</td>
-                <td></td>
-                <td></td>
-                <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                <td><div class="cell" edit_type="dblclick">05/05/2021</div></td>
+                <td><div class="cell" edit_type="dblclick">13h05</div></td>
+                <td><div class="cell" edit_type="dblclick">34 56</div></td>
+                <td><div class="cell" edit_type="dblclick">Paris</div></td>
+                <td><div class="cell" edit_type="dblclick">Accident</div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
             <tr id="row">
-                <td>05/05/2021</td>
-                <td>14h34</td>
-                <td>34 56</td>
-                <td>Paris</td>
-                <td>Accident</td>
-                <td></td>
-                <td></td>
-                <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                <td><div class="cell" edit_type="dblclick">05/05/2021</div></td>
+                <td><div class="cell" edit_type="dblclick">14h34</div></td>
+                <td><div class="cell" edit_type="dblclick">34 56</div></td>
+                <td><div class="cell" edit_type="dblclick">Paris</div></td>
+                <td><div class="cell" edit_type="dblclick">Accident</div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
             <tr id="row">
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                <td><div class="cell" edit_type="dblclick">0</div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
             <tr id="row">
-                <td>0</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
+                <td><div class="cell" edit_type="dblclick">0</div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><div class="cell" edit_type="dblclick"></div></td>
+                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
     </div>
 

@@ -16,19 +16,31 @@
     padding: 10px;
   }
 
-  #logo{
-    background-color: white;
-    border: 2px solid black;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border-collapse: collapse;
-    margin: auto;
-    font-size: 0.9em;
-    border-radius: 5px 5px 5px 5px;
-    text-align: center;
-    height: 75px;
-  }
+#logo1{
+  background-color: white;
+  border: 2px solid black;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9em;
+  border-radius: 5px 5px 5px 5px;
+  text-align: center;
+  height: 75px;
+}
 
+#logo2{
+  background-color: white;
+  border: 2px solid black;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9em;
+  border-radius: 5px 5px 5px 5px;
+  text-align: center;
+  height: 75px;
+}
   .container{
     height: 100px;
   }
