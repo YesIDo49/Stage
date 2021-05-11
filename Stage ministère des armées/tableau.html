@@ -16,7 +16,7 @@
         <button onclick = "changeColor('#6f6ff0a2');" onclick = "revenir()">Bleu</button>
         <button onclick = "changeColor('#085848');">Vert</button>
         <button onclick = "changeColor('#f07474');">Rouge</button>
-        <button onclick = "changeColor('#ffffaa');">Jaune</button>
+        <button onclick = "changeColor('#8a8324');">Jaune</button>
     </div>
 
     <br>
@@ -67,7 +67,7 @@
     <div id="divTableau">
         <!--Section d'affichage du tableau-->
         <h2>Tableau</h2>
-        <table class="content-table" id="table">
+        <table class="content-table" >
             <!--Entete du tableau-->
             <thead>
             <tr id="ligneTitre">
@@ -83,7 +83,7 @@
             </tr>
             </thead>
             <!--Corps du tableau-->
-            <tbody>
+            <tbody id="table">
             <tr id="row">
                 <td>05/05/2021</td>
                 <td>13h05</td>
@@ -127,7 +127,7 @@
     </div>
 
             </tbody>
-        </table>
+        </table><br>
 
         <script src="tableau.js"></script>
     </body>

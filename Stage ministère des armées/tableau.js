@@ -1,9 +1,9 @@
-<!--Selection des elements-->
+//Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
 var cpt = 0;
 
-<!--Selection des elements qui vont etre importer dans le tableau-->
+//Selection des elements qui vont etre importer dans le tableau
 let dateInput = document.querySelector('#date');
 let heureInput = document.querySelector('#heure');
 let coorconneesInput = document.querySelector('#coordonnees');
@@ -13,12 +13,16 @@ let kiaInput = document.querySelector('#kia');
 let imageInput = document.querySelector('#image');
 
 function changeColor(color) { 
-        var e = document.getElementById('table');
+        var table = document.getElementById('table');
         var banniere = document.getElementById('banniere');
         var ligneTitre = document.getElementById('ligneTitre');
-        e.style.backgroundColor= color;
+        table.style.backgroundColor= color;
+        table.style.borderBottom= '2px solid'+ color;
+        table.style.opacity= '0.8';
+        table.style.color= 'black';
         banniere.style.backgroundColor = color;
         ligneTitre.style.backgroundColor = color;
+        ligneTitre.style.opacity = '1';
         
 }
 
@@ -86,10 +90,10 @@ function pair(){
 
 }
 
-<!--Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"-->
+//Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
 document.getElementById("btnAjout").addEventListener("click", ()=> {
     cpt++;
-    <!--Selection des valeurs entrees dans les champs-->
+    //Selection des valeurs entrees dans les champs
     let date = dateInput.value;
     let heure = heureInput.value;
     let coordonnees = coorconneesInput.value;
@@ -98,7 +102,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
     let kia = kiaInput.value;
     let image = imageInput.value;
 
-    <!--Creation d'un template pour les nouvelles lignes-->
+    //Creation d'un template pour les nouvelles lignes
     let template = `
                 <tr id="row">
                     <td>${date}</td>
@@ -110,24 +114,24 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
                     <td>${image}</td>
                     <td><button class="editBtn">Modifier</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
-    <!--Ajout du template au tableau-->
+    //Ajout du template au tableau
     table.innerHTML += template;
 
-    <!--Notification de l'ajout d'une ligne-->
+    //Notification de l'ajout d'une ligne
     alert("nouvelle ligne ajoutee au tableau");
 });
 
 
-<!--Suppression d'une ligne du tableau-->
+//Suppression d'une ligne du tableau
 function supprimerLigne(e){
-    <!--On ne supprime pas la ligne si on clique autre part que sur le bouton-->
+    //On ne supprime pas la ligne si on clique autre part que sur le bouton
     if (!e.target.classList.contains("deleteBtn")) {
         return;
     }
 
-    <!--Le bouton est la cible-->
+    //Le bouton est la cible
     const btn = e.target;
-    <!--Supprime la ligne en cherchant le tr le plus proche-->
+    //Supprime la ligne en cherchant le tr le plus proche
     btn.closest("tr").remove();
     alert("la ligne a ete supprimee");
 
