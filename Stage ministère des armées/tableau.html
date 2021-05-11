@@ -14,7 +14,7 @@
     <body><br>
     <div class="btnCouleur">
         Options de personnalisation <br>
-        <button onclick = "changeColor('#6f6ff0a2');" onclick = "revenir()">Bleu</button>
+        <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>
         <button onclick = "changeColor('#085848');">Vert</button>
         <button onclick = "changeColor('#f07474');">Rouge</button>
         <button onclick = "changeColor('#8a8324');">Jaune</button>
@@ -34,7 +34,7 @@
                 <img id="logo1" src="images/armée.png">
             </div>
             <!--La classe bg-warning ajoute un fond jaune à l'élément-->
-            <div class="col-8" id="banniere" onclick="changer()"><h1>MON OPERATION</h1></div>
+            <div class="col-8" id="banniere" ondblclick="changer()"><h1>MON OPERATION</h1></div>
             <!--La classe bg-success ajoute un fond vert à l'élément-->
             <div class="col-2">
                 <img id="logo2" src="images/armée.png">
@@ -77,13 +77,13 @@
             <!--Entete du tableau-->
             <thead>
             <tr id="ligneTitre">
-                <th id="1" onclick="changer1()">Date</th>
-                <th id="2" onclick="changer2()">Heure</th>
-                <th id="3" onclick="changer3()">Coordonees</th>
-                <th id="4" onclick="changer4()">Lieux</th>
-                <th id="5" onclick="changer5()">Evenements</th>
-                <th id="6" onclick="changer6()">KIA</th>
-                <th id="7" onclick="changer7()">Image</th>
+                <th id="1" ondblclick="changer1()">Date</th>
+                <th id="2" ondblclick="changer2()">Heure</th>
+                <th id="3" ondblclick="changer3()">Coordonees</th>
+                <th id="4" ondblclick="changer4()">Lieux</th>
+                <th id="5" ondblclick="changer5()">Evenements</th>
+                <th id="6" ondblclick="changer6()">KIA</th>
+                <th id="7" ondblclick="changer7()">Image</th>
                 <!--Colonne pour les boutons-->
                 <th>Options</th>
             </tr>
