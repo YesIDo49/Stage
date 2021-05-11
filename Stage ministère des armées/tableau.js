@@ -28,96 +28,48 @@ function changeColor(color) {
 
 function changer() {
     var titre = prompt('Veuiller entrer le nom de votre entreprise...');
-    if(titre.onclick()){
         document.getElementById('banniere').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 
 }
 
 function changer1() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('1').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer2() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('2').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer3() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('3').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 function changer4() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('4').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 function changer5() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('5').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
+
 }
 
 function changer6() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
+
         document.getElementById('6').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer7() {
     var titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('7').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 
-}
-function revenir(){
-    var e = document.getElementById('table');
-
-        
-        e.style.backgroundColor= 'purple';
 }
 
 function pair(){
