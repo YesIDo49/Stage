@@ -181,97 +181,52 @@ function changeColor(color) {
 
 function changer() {
     let titre = prompt('Veuiller entrer le nom de votre entreprise...');
-    if(titre.onclick()){
         document.getElementById('banniere').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 
 }
 
 function changer1() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('1').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer2() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('2').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer3() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('3').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
+
 function changer4() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('4').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
+ 
 }
+
 function changer5() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('5').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
+
 }
 
 function changer6() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
         document.getElementById('6').innerHTML = titre;
-    }
-    
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 }
 
 function changer7() {
     let titre = prompt('Veuiller entrer le titre de la colonne...');
-    if(titre.onclick()){
+
         document.getElementById('7').innerHTML = titre;
-    }
     
-    else{
-       // window.alert("Vous n'avez pas changer le titre.")
-    }
 
 }
-function revenir(){
-    let e = document.getElementById('table');
 
-        
-        e.style.backgroundColor= 'purple';
-}
 
 function pair(){
         
