@@ -45,16 +45,27 @@
     height: 100px;
   }
 
+  .my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display:block;
+    }
+
+   
   .content-table {
     border-collapse: collapse;
     margin: auto;
     width: 75%;
     font-size: 0.9em;
     min-width: 400px;
+    max-height: 00px;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     text-align: center;
+    overflow-y:scroll
   }
   
   .content-table thead tr {
@@ -85,6 +96,8 @@
     font-weight: bold;
     color: #009879;
   }
+
+ 
 
   #divAjout{
     text-align: center;

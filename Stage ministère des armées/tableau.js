@@ -1,3 +1,11 @@
+$(document).ready(function () {
+    $('#dtVerticalScrollExample').DataTable({
+    "scrollY": "200px",
+    "scrollCollapse": true,
+    });
+    $('.dataTables_length').addClass('bs-select');
+    });
+
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -228,21 +236,6 @@ function changer7() {
 }
 
 
-function pair(){
-        
-        
-    if(row%2 == 0){
-        let e = document.getElementsByTagName('tr');
-        e.style.color= '#009879';
-        e.style.backgrounColor= '#f3f3f3';
-        e.style.fontWeight= 'bold';
-    }
-
-    else{
-        e.style.backgrounColor= 'grey';
-    }
-
-}
 
 //Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
 document.getElementById("btnAjout").addEventListener("click", ()=> {
