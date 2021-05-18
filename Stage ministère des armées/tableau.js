@@ -286,3 +286,16 @@ function supprimerLigne(e){
 
 table.addEventListener('click', supprimerLigne);
 
+function sortTableByColumn(table, column, asc = true){
+    const dirModifier = asc ? 1 : -1;
+    const tBody = table.tBodies[0];
+    const rows = Array.from(tBody.querySelectorAll("tr")) //selectionne chaque ligne du tableau
+
+    // Tri des lignes
+    const sortedRows = rows.sort((a, b) => { //comparaison de a et de b (lignes du tableau)
+        const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier); //retour 1 ou -1 pour determiner comment on fera le tri
+    });
+}
