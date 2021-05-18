@@ -154,8 +154,10 @@ margin-left: 5px;
 /*Début < Menu déroulant de personnalisation*/
 .toggleBtn{
 display: block;
-width: 100%;
+width: 50%;
+margin: auto;
 padding: 15px;
+border-radius: 5px 5px 5px 5px;
 border: none;
 outline: none;
 cursor: pointer;
