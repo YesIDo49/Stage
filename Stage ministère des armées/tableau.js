@@ -52,7 +52,7 @@ $(document).on('dblclick', '.cell', function(event)
         return false;
     }
 
-    //make div editable
+    //Rend la div modifiable
     $(this).closest('div').attr('contenteditable', 'true');
     //add bg css
     $(this).addClass('bg-warning').css('padding','5px');
@@ -81,7 +81,7 @@ $(document).on('focusout', '.cell', function(event)
 })
 //Fin < On enregistre la modification de la cellule en cliquant autre part > Fin
 
-//--->button > edit > start
+//Debut < on appuie sur le bouton pour modifier la ligne
 $(document).on('click', '.editBtn', function(event)
 {
     event.preventDefault();
@@ -92,10 +92,10 @@ $(document).on('click', '.editBtn', function(event)
     tbl_row.find('.saveBtn').show();
     tbl_row.find('.cancelBtn').show();
 
-    //hide edit button
+    //Cache le bouton "modifier"
     tbl_row.find('.editBtn').hide();
 
-    //make the whole row editable
+    //Rend toute la ligne modifiable
     tbl_row.find('.cell')
         .attr('contenteditable', 'true')
         .attr('edit_type', 'button')
@@ -103,18 +103,18 @@ $(document).on('click', '.editBtn', function(event)
         .css('padding','3px')
         
 
-    //--->add the original entry > start
+    //Ajoute la valeur entrée > début
     tbl_row.find('.cell').each(function(index, val)
     {
-        //this will help in case user decided to click on cancel button
+        //Cela aide si l'utilisateur décide de cliquer sur annuler
         $(this).attr('original_entry', $(this).html());
     });
-    //--->add the original entry > end
+    //Ajoute la valeur entrée > fin
 
 });
-//--->button > edit > end
+//Fin < on appuie sur le bouton pour modifier la ligne
 
-//--->button > cancel > start
+//Début < fonction du bouton "Annuler"
 $(document).on('click', '.cancelBtn', function(event)
 {
     event.preventDefault();
@@ -123,14 +123,14 @@ $(document).on('click', '.cancelBtn', function(event)
 
     let row_id = tbl_row.attr('row_id');
 
-    //hide save and cacel buttons
+    //Cache les boutons "Sauvegarder" et "Annuler"
     tbl_row.find('.saveBtn').hide();
     tbl_row.find('.cancelBtn').hide();
 
-    //show edit button
+    //Montre le bouton "Modifier"
     tbl_row.find('.editBtn').show();
 
-    //make the whole row editable
+    //Rend toute la ligne modifiable
     tbl_row.find('.cell')
         .attr('edit_type', 'click')
         .removeClass('bg-warning')
@@ -142,9 +142,9 @@ $(document).on('click', '.cancelBtn', function(event)
         $(this).html( $(this).attr('original_entry') );
     });
 });
-//--->button > cancel > end
+//Fin < fonction du bouton "Annuler"
 
-//--->save whole row entery > start
+//Début < fonction de sauvegarde de la ligne
 $(document).on('click', '.saveBtn', function(event)
 {
     event.preventDefault();
@@ -153,28 +153,29 @@ $(document).on('click', '.saveBtn', function(event)
     let row_id = tbl_row.attr('row_id');
 
 
-    //hide save and cacel buttons
+    //Cache les boutons "Sauvegarder" et "Annuler"
     tbl_row.find('.saveBtn').hide();
     tbl_row.find('.cancelBtn').hide();
 
-    //show edit button
+    //Montre le bouton "Modifier"
     tbl_row.find('.editBtn').show();
 
 
-    //make the whole row editable
+    //Rend toute la ligne modifiable
     tbl_row.find('.cell')
         .attr('edit_type', 'click')
         .removeClass('bg-warning')
         .css('padding','')
 
 });
-//--->save whole row entery > end
+//Fin < fonction de sauvegarde de la ligne
 
 //Change la couleur de la bannière et du tableau
 function changeColor(color) {
     let table = document.getElementById('table');
     let banniere = document.getElementById('banniere');
     let ligneTitre = document.getElementById('ligneTitre');
+    let menu = document.getElementById('menu');
     table.style.backgroundColor= color;
     table.style.borderBottom= '2px solid'+ color;
     table.style.opacity= '0.8';
@@ -182,58 +183,8 @@ function changeColor(color) {
     banniere.style.backgroundColor = color;
     ligneTitre.style.backgroundColor = color;
     ligneTitre.style.opacity = '1';
+    menu.style.backgroundColor = color;
 }
-
-/*
-function changer() {
-    let titre = prompt('Veuiller entrer le nom de votre entreprise...');
-        document.getElementById('banniere').innerHTML = titre;
-
-}
-
-function changer1() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('1').innerHTML = titre;
-}
-
-function changer2() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('2').innerHTML = titre;
-}
-
-function changer3() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('3').innerHTML = titre;
-}
-
-function changer4() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('4').innerHTML = titre;
-    
- 
-}
-
-function changer5() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('5').innerHTML = titre;
-    
-
-}
-
-function changer6() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-        document.getElementById('6').innerHTML = titre;
-}
-
-function changer7() {
-    let titre = prompt('Veuiller entrer le titre de la colonne...');
-
-        document.getElementById('7').innerHTML = titre;
-    
-
-}*/
-
-
 
 //Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
 document.getElementById("btnAjout").addEventListener("click", ()=> {
@@ -280,7 +231,7 @@ function supprimerLigne(e){
     //Supprime la ligne en cherchant le tr le plus proche
     if(confirm("Voulez vous supprimer la ligne ?")){
         btn.closest("tr").remove();
-        alert("la ligne a ete supprimee");
+        alert("La ligne a été supprimée");
     
     }
 
@@ -296,9 +247,64 @@ function sortTableByColumn(table, column, asc = true){
 
     // Tri des lignes
     const sortedRows = rows.sort((a, b) => { //comparaison de a et de b (lignes du tableau)
+        //constante: texte de la colonne de ligne. on prend les infos de la cellule dans l'index choisi (column)
         const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
         const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
 
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier); //retour 1 ou -1 pour determiner comment on fera le tri
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
     });
+
+    // On retire les lignes (tr) du tableau
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+    }
+
+    // On remet les lignes qui ont ete triees
+    tBody.append(...sortedRows);
+
+    // On veut se souvenir du tri actuel du tableau (croissant ou decroissant) pour pouvoir switcher avec l'autre option
+    // On selectionne les entetes du tableau (colonnes) et on enleve la classe qui a pu etre ajoutee auparavant (voir lignes ci dessous)
+    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    // Si on est en asc on va ajouter la classe "th-sort-asc" a l'entete du tableau
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
+    // Si on est en desc on va ajouter la classe "th-sort-desc" a l'entete du tableau
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
 }
+
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+    // Evenement lorsqu'on clique sur une entete
+    headerCell.addEventListener("click", () => {
+        // On veut que tableElement fasse reference a <table> donc on passe de <th> a <tr> a <thead> a <table> donc 3 parents
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        // La colonnes est consideree comme asc si on a la classe "th-sort-asc"
+        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+
+        // Permet de permutter entre asc et desc
+        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+    });
+});
+
+    $(document).ready(function(){
+    $("#searchBox").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#table tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+
+//Fonction pour le menu déroulant de personnalisation
+    document.querySelectorAll('.toggleBtn').forEach(button =>{
+        button.addEventListener('click', () => {
+            const toggleContent = button.nextElementSibling;
+            button.classList.toggle('toggleBtn--active');
+            if (button.classList.contains('toggleBtn--active')){
+                toggleContent.style.maxHeight = toggleContent.scrollHeight + 'px';
+            }
+            else{
+                toggleContent.style.maxHeight = 0;
+            }
+
+        });
+    });
