@@ -45,6 +45,7 @@ $(document).find('.cancelBtn').hide();
 $(document).on('dblclick', '.cell', function(event)
 {
     event.preventDefault();
+    
 
     if($(this).attr('edit_type') == 'button')
     {
@@ -75,6 +76,7 @@ $(document).on('focusout', '.cell', function(event)
     $(this)
         .removeClass('bg-warning') //add bg css
         .css('padding','')
+        
 
 })
 //Fin < On enregistre la modification de la cellule en cliquant autre part > Fin
@@ -99,6 +101,7 @@ $(document).on('click', '.editBtn', function(event)
         .attr('edit_type', 'button')
         .addClass('bg-warning')
         .css('padding','3px')
+        
 
     //--->add the original entry > start
     tbl_row.find('.cell').each(function(index, val)
@@ -132,6 +135,7 @@ $(document).on('click', '.cancelBtn', function(event)
         .attr('edit_type', 'click')
         .removeClass('bg-warning')
         .css('padding','')
+        .css('background-color','transparent')
 
     tbl_row.find('.cell').each(function(index, val)
     {
@@ -166,6 +170,7 @@ $(document).on('click', '.saveBtn', function(event)
 });
 //--->save whole row entery > end
 
+//Change la couleur de la bannière et du tableau
 function changeColor(color) {
     let table = document.getElementById('table');
     let banniere = document.getElementById('banniere');
@@ -179,6 +184,7 @@ function changeColor(color) {
     ligneTitre.style.opacity = '1';
 }
 
+/*
 function changer() {
     let titre = prompt('Veuiller entrer le nom de votre entreprise...');
         document.getElementById('banniere').innerHTML = titre;
@@ -225,7 +231,7 @@ function changer7() {
         document.getElementById('7').innerHTML = titre;
     
 
-}
+}*/
 
 
 
@@ -264,16 +270,21 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 //Suppression d'une ligne du tableau
 function supprimerLigne(e){
     //On ne supprime pas la ligne si on clique autre part que sur le bouton
-    if (!e.target.classList.contains("deleteBtn")) {
+    if (!e.target.classList.contains("deleteBtn")) {   
         return;
     }
+
 
     //Le bouton est la cible
     const btn = e.target;
     //Supprime la ligne en cherchant le tr le plus proche
-    btn.closest("tr").remove();
-    alert("la ligne a ete supprimee");
+    if(confirm("Voulez vous supprimer la ligne ?")){
+        btn.closest("tr").remove();
+        alert("la ligne a ete supprimee");
+    
+    }
 
+    
 }
 
 table.addEventListener('click', supprimerLigne);
