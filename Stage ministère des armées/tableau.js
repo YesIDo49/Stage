@@ -214,7 +214,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
     table.innerHTML += template;
 
     //Notification de l'ajout d'une ligne
-    alert("nouvelle ligne ajoutee au tableau");
+    alert("Nouvelle ligne ajoutée au tableau");
 });
 
 
