@@ -1,11 +1,3 @@
-$(document).ready(function () {
-    $('#dtVerticalScrollExample').DataTable({
-    "scrollY": "200px",
-    "scrollCollapse": true,
-    });
-    $('.dataTables_length').addClass('bs-select');
-    });
-
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -272,16 +264,21 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 //Suppression d'une ligne du tableau
 function supprimerLigne(e){
     //On ne supprime pas la ligne si on clique autre part que sur le bouton
-    if (!e.target.classList.contains("deleteBtn")) {
+    if (!e.target.classList.contains("deleteBtn")) {   
         return;
     }
+
 
     //Le bouton est la cible
     const btn = e.target;
     //Supprime la ligne en cherchant le tr le plus proche
-    btn.closest("tr").remove();
-    alert("la ligne a ete supprimee");
+    if(confirm("Voulez vous supprimer la ligne ?")){
+        btn.closest("tr").remove();
+        alert("la ligne a ete supprimee");
+    
+    }
 
+    
 }
 
 table.addEventListener('click', supprimerLigne);
