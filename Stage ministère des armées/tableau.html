@@ -11,7 +11,27 @@
         <script src="jquery-3.6.0.js"></script>
         <title>Stage</title>
     </head>
-    <body><br>
+
+    <body>
+    <br>
+
+    <div class="toggle">
+        <button type="button" class="toggleBtn">Options de personnalisation</button>
+        <div class="toggle_content" style="max-height: 500px;">
+            <br>
+            <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>
+            <button onclick = "changeColor('#085848');">Vert</button>
+            <button onclick = "changeColor('#f07474');">Rouge</button>
+            <button onclick = "changeColor('#8a8324');">Jaune</button>
+            <br><br>
+            <button onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
+            <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>
+            <button onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
+            <button onclick="logoMer()" id="logoMer">Marine nationale</button>
+            <br>
+        </div>
+        <br>
+    </div>
     <div class="btnCouleur">
         Options de personnalisation <br>
         <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>

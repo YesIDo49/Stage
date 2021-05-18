@@ -342,3 +342,17 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
         });
     });
 });
+
+    document.querySelectorAll('.toggleBtn').forEach(button =>{
+        button.addEventListener('click', () => {
+            const toggleContent = button.nextElementSibling;
+            button.classList.toggle('toggleBtn--active');
+            if (button.classList.contains('toggleBtn--active')){
+                toggleContent.style.maxHeight = toggleContent.scrollHeight + 'px';
+            }
+            else{
+                toggleContent.style.maxHeight = 0;
+            }
+
+        });
+    });
