@@ -1,11 +1,3 @@
-$(document).ready(function () {
-    $('#dtVerticalScrollExample').DataTable({
-    "scrollY": "200px",
-    "scrollCollapse": true,
-    });
-    $('.dataTables_length').addClass('bs-select');
-    });
-
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -293,9 +285,40 @@ function sortTableByColumn(table, column, asc = true){
 
     // Tri des lignes
     const sortedRows = rows.sort((a, b) => { //comparaison de a et de b (lignes du tableau)
+        //constante: texte de la colonne de ligne. on prend les infos de la cellule dans l'index choisi (column)
         const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
         const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
 
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier); //retour 1 ou -1 pour determiner comment on fera le tri
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
     });
+
+    // On retire les lignes (tr) du tableau
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+    }
+
+    // On remet les lignes qui ont ete triees
+    tBody.append(...sortedRows);
+
+    // On veut se souvenir du tri actuel du tableau (croissant ou decroissant) pour pouvoir switcher avec l'autre option
+    // On selectionne les entetes du tableau (colonnes) et on enleve la classe qui a pu etre ajoutee auparavant (voir lignes ci dessous)
+    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    // Si on est en asc on va ajouter la classe "th-sort-asc" a l'entete du tableau
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
+    // Si on est en desc on va ajouter la classe "th-sort-desc" a l'entete du tableau
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
 }
+
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+    // Evenement lorsqu'on clique sur une entete
+    headerCell.addEventListener("click", () => {
+        // On veut que tableElement fasse reference a <table> donc on passe de <th> a <tr> a <thead> a <table> donc 3 parents
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        // La colonnes est consideree comme asc si on a la classe "th-sort-asc"
+        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+
+        // Permet de permutter entre asc et desc
+        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+    });
+});
