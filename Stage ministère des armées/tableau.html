@@ -14,26 +14,6 @@
 
     <body>
     <br>
-    <!--Menu déroulant de personnalisation-->
-    <div class="toggle">
-        <button type="button" class="toggleBtn"  id="menu">Options de personnalisation</button>
-        <div class="toggle_content" style="max-height: 500px;">
-            <br>
-            <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>
-            <button onclick = "changeColor('#085848');">Vert</button>
-            <button onclick = "changeColor('#f07474');">Rouge</button>
-            <button onclick = "changeColor('#8a8324');">Jaune</button>
-            <br><br>
-            <button onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
-            <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>
-            <button onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
-            <button onclick="logoMer()" id="logoMer">Marine nationale</button>
-            <br>
-        </div>
-
-    </div>
-
-    <br>
 
       <div class="container">
         <div class="row">
@@ -224,11 +204,29 @@
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
             </tbody>
-        </table>
+        </table> <br>
+    </div>  
+        <br>
+        <!--Menu déroulant de personnalisation-->
+    <div class="toggle">
+        <button type="button" class="toggleBtn"  id="menu">Options de personnalisation</button>
+        <div class="toggle_content" style="max-height: 500px;">
+            <br>
+            <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>
+            <button onclick = "changeColor('#085848');">Vert</button>
+            <button onclick = "changeColor('#f07474');">Rouge</button>
+            <button onclick = "changeColor('#8a8324');">Jaune</button>
+            <br><br>
+            <button onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
+            <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>
+            <button onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
+            <button onclick="logoMer()" id="logoMer">Marine nationale</button>
+            <br>
+        </div>
+        <br>
     </div>
 
-            
-        <br>
+    <br>
         <!--Lien du script-->
         <script src="tableau.js"></script>
     </body>
