@@ -120,7 +120,7 @@ height: 75px;
 
 /*Début < Permet de défiler/scroller sur le tableau*/
 .tableFixHead{
-overflow: scroll;
+overflow-y: scroll;
 height: 400px;
 }
 
