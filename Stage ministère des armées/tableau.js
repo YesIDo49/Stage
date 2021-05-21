@@ -308,3 +308,10 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
 
         });
     });
+
+$('#run').click( function() {
+    var table = $('#tableau').tableToJSON();
+    alert("une nouvelle page avec le json va s'ouvrir");
+    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+    myWindow.document.write(JSON.stringify(table));
+});

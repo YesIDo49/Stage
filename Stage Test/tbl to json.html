@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tbl to json</title>
 </head>
 <body>
 
@@ -16,29 +16,142 @@
 </head>
 
 <body>
-<table id="students" border="1">
+<table class="content-table table-hover table-sortable" id="tableau" >
+    <!--Entete du tableau-->
     <thead>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Grade</th>
+    <tr id="ligneTitre">
+        <th><div class="cell" edit_type="dblclick">Date</div></th>
+        <th><div class="cell" edit_type="dblclick">Heure</div></th>
+        <th><div class="cell" edit_type="dblclick">Coordonnees</div></th>
+        <th><div class="cell" edit_type="dblclick">Lieux</div></th>
+        <th><div class="cell" edit_type="dblclick">Evenement</div></th>
+        <th><div class="cell" edit_type="dblclick">KIA</div></th>
+        <th><div class="cell" edit_type="dblclick">Image</div></th>
+        <!--Colonne pour les boutons-->
+        <th>Options</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <td>Oscar</td>
-        <td>23</td>
-        <td>16.5</td>
+    <!--Corps du tableau-->
+    <tbody id="table">
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
+        <td><div class="cell" edit_type="dblclick">13:05</div></td>
+        <td><div class="cell" edit_type="dblclick">123456789</div></td>
+        <td><div class="cell" edit_type="dblclick">Parisé</div></td>
+        <td><div class="cell" edit_type="dblclick">Accident</div></td>
+        <td><div class="cell" edit_type="dblclick">1</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
     </tr>
-    <tr>
-        <td>Antonio</td>
-        <td>32</td>
-        <td>14</td>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
+        <td><div class="cell" edit_type="dblclick">23:05</div></td>
+        <td><div class="cell" edit_type="dblclick">234567891</div></td>
+        <td><div class="cell" edit_type="dblclick">Parise</div></td>
+        <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
+        <td><div class="cell" edit_type="dblclick">2</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
     </tr>
-    <tr>
-        <td>Jessica</td>
-        <td>21</td>
-        <td>19</td>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
+        <td><div class="cell" edit_type="dblclick">20:05</div></td>
+        <td><div class="cell" edit_type="dblclick">345678912</div></td>
+        <td><div class="cell" edit_type="dblclick">Dubai</div></td>
+        <td><div class="cell" edit_type="dblclick">Crash</div></td>
+        <td><div class="cell" edit_type="dblclick">7</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
+        <td><div class="cell" edit_type="dblclick">20:05</div></td>
+        <td><div class="cell" edit_type="dblclick">456789123</div></td>
+        <td><div class="cell" edit_type="dblclick">Cuba</div></td>
+        <td><div class="cell" edit_type="dblclick">Drogue</div></td>
+        <td><div class="cell" edit_type="dblclick">3</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+        <td><div class="cell" edit_type="dblclick">12:10</div></td>
+        <td><div class="cell" edit_type="dblclick">567891234</div></td>
+        <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
+        <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
+        <td><div class="cell" edit_type="dblclick">23</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+        <td><div class="cell" edit_type="dblclick">17:30</div></td>
+        <td><div class="cell" edit_type="dblclick">678912345</div></td>
+        <td><div class="cell" edit_type="dblclick">Seoul</div></td>
+        <td><div class="cell" edit_type="dblclick">Bombe</div></td>
+        <td><div class="cell" edit_type="dblclick">239</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
+        <td><div class="cell" edit_type="dblclick">13:05</div></td>
+        <td><div class="cell" edit_type="dblclick">123456789</div></td>
+        <td><div class="cell" edit_type="dblclick">Paris</div></td>
+        <td><div class="cell" edit_type="dblclick">Accident</div></td>
+        <td><div class="cell" edit_type="dblclick">1</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
+        <td><div class="cell" edit_type="dblclick">23:05</div></td>
+        <td><div class="cell" edit_type="dblclick">234567891</div></td>
+        <td><div class="cell" edit_type="dblclick">New York</div></td>
+        <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
+        <td><div class="cell" edit_type="dblclick">2</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
+        <td><div class="cell" edit_type="dblclick">20:05</div></td>
+        <td><div class="cell" edit_type="dblclick">345678912</div></td>
+        <td><div class="cell" edit_type="dblclick">Dubai</div></td>
+        <td><div class="cell" edit_type="dblclick">Crash</div></td>
+        <td><div class="cell" edit_type="dblclick">7</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
+        <td><div class="cell" edit_type="dblclick">20:05</div></td>
+        <td><div class="cell" edit_type="dblclick">456789123</div></td>
+        <td><div class="cell" edit_type="dblclick">Cuba</div></td>
+        <td><div class="cell" edit_type="dblclick">Drogue</div></td>
+        <td><div class="cell" edit_type="dblclick">3</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+        <td><div class="cell" edit_type="dblclick">12:10</div></td>
+        <td><div class="cell" edit_type="dblclick">567891234</div></td>
+        <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
+        <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
+        <td><div class="cell" edit_type="dblclick">23</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+    </tr>
+    <tr id="row">
+        <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+        <td><div class="cell" edit_type="dblclick">17:30</div></td>
+        <td><div class="cell" edit_type="dblclick">678912345</div></td>
+        <td><div class="cell" edit_type="dblclick">Seoul</div></td>
+        <td><div class="cell" edit_type="dblclick">Bombe</div></td>
+        <td><div class="cell" edit_type="dblclick">239</div></td>
+        <td><div class="cell" edit_type="dblclick"></div></td>
+        <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
     </tr>
     </tbody>
 </table>
@@ -46,6 +159,7 @@
 <br>
 
 <button id="run">Convert!</button>
+
 
 <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js"
@@ -55,9 +169,12 @@
     // Code goes here
 
     $('#run').click( function() {
-        var table = $('#students').tableToJSON();
-        alert(JSON.stringify(table));
+        var table = $('#tableau').tableToJSON();
+        alert("une nouvelle page avec le json va s'ouvrir");
+        var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+        myWindow.document.write(JSON.stringify(table));
     });
+
 </script>
 </body>
 

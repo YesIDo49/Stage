@@ -66,7 +66,7 @@
 
     <div  class="tableFixHead" id="divTableau">
         <!--Section d'affichage du tableau-->
-        <table class="content-table table-hover table-sortable" >
+        <table class="content-table table-hover table-sortable" id="tableau" >
             <!--Entete du tableau-->
             <thead>
             <tr id="ligneTitre">
@@ -221,6 +221,7 @@
             <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>
             <button onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
             <button onclick="logoMer()" id="logoMer">Marine nationale</button>
+            <button id="run">Convert!</button>
             <br>
         </div>
         <br>
@@ -228,6 +229,9 @@
 
     <br>
         <!--Lien du script-->
+    <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js"
+            integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
         <script src="tableau.js"></script>
+
     </body>
 </html>
