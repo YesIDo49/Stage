@@ -190,7 +190,7 @@ function changeColor(color) {
 
     $(".file-upload__button").css( 'background-color', color );
     $(".file-upload__button").css( 'border', color );
-    $("tbody").css( 'border-bottom', "2px solid" + color );
+    $(".content-table").css( 'border-bottom', "2px solid" + color );
 
 
     $('.ligneHover').hover(function(){
