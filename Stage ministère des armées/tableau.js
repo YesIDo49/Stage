@@ -246,7 +246,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 
     //Creation d'un template pour les nouvelles lignes
     let template = `
-                <tr id="row" class="ligneHover">
+                <tr id="row" class="ligneHover table-striped ">
                     <td><div class="cell" edit_type="dblclick">${date}</div></td>
                     <td><div class="cell" edit_type="dblclick">${heure}</div></td>
                     <td><div class="cell" edit_type="dblclick">${coordonnees}</div></td>
