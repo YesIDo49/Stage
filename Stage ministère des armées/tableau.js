@@ -1,3 +1,34 @@
+Array.prototype.forEach.call(
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "No file(s) selected";
+
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
+
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
+
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
+
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
+);
+
+
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -207,7 +238,13 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
                     <td><div class="cell" edit_type="dblclick">${lieu}</div></td>
                     <td><div class="cell" edit_type="dblclick">${evenement}</div></td>
                     <td><div class="cell" edit_type="dblclick">${kia}</div></td>
-                    <td><div class="cell" edit_type="dblclick">${image}</div></td>
+                    <td><div class="cell" edit_type="dblclick">${image}
+                    <div class="file-upload">
+                            <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+                            <button class="file-upload__button" type="button">Choose File(s)</button>
+                            <span class="file-upload__label"></span>
+                        </div>
+                        </div></td>
                     <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
     //Ajout du template au tableau
