@@ -159,6 +159,8 @@
 <br>
 
 <button id="run">Convert!</button>
+<div id="container"></div>
+
 
 
 <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -168,11 +170,17 @@
 <script>
     // Code goes here
 
+    //$('#run').click( function() {
+     //   var table = $('#tableau').tableToJSON();
+       // alert("une nouvelle page avec le json va s'ouvrir");
+        //var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+        //myWindow.document.write(JSON.stringify(table));
+   // });
     $('#run').click( function() {
         var table = $('#tableau').tableToJSON();
-        alert("une nouvelle page avec le json va s'ouvrir");
-        var myWindow = window.open("", "MsgWindow", "width=200,height=100");
-        myWindow.document.write(JSON.stringify(table));
+        var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
+        $('<a href="data:' + data + '" download="data.json">download JSON</a>').appendTo('#container');
+
     });
 
 </script>
