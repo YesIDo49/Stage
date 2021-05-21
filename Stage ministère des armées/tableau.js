@@ -354,9 +354,9 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
         });
     });
 
-$('#run').click( function() {
+$('#jsonBtn').click( function() {
     var table = $('#tableau').tableToJSON();
-    alert("une nouvelle page avec le json va s'ouvrir");
-    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
-    myWindow.document.write(JSON.stringify(table));
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
+    $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
+
 });

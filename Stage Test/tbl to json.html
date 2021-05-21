@@ -179,7 +179,7 @@
     $('#run').click( function() {
         var table = $('#tableau').tableToJSON();
         var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
-        $('<a href="data:' + data + '" download="data.json">download JSON</a>').appendTo('#container');
+        $('<button><a href="data:' + data + '" download="data.json"></a></button>').appendTo('#container');
 
     });
 
