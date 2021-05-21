@@ -206,15 +206,23 @@ function changeColor(color) {
     let table = document.getElementById('table');
     let banniere = document.getElementById('banniere');
     let ligneTitre = document.getElementById('ligneTitre');
+    //let uploadButton = document.querySelectorAll('myFile');
     let menu = document.getElementById('menu');
     table.style.backgroundColor= color;
     table.style.borderBottom= '2px solid'+ color;
-    table.style.opacity= '0.8';
+    table.style.opacity= '0.6';
     table.style.color= 'black';
     banniere.style.backgroundColor = color;
     ligneTitre.style.backgroundColor = color;
+    $("#ligneTitre").css( 'background-color', color );
     ligneTitre.style.opacity = '1';
     menu.style.backgroundColor = color;
+    //document.querySelectorAll('.file-upload__button').style.backgroundColor = color;
+    $(".file-upload__button").css( 'background-color', color );
+    $(".file-upload__button").css( 'border', color );
+    $(".file-upload__button").css( 'opacity', "1" );
+      for (let e of document.querySelectorAll("th")) {e.style.backgroundColor= color;
+            e.style.opacity= "1";}
 }
 
 //Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
