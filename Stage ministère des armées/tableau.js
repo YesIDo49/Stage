@@ -1,32 +1,4 @@
-Array.prototype.forEach.call(
-  document.querySelectorAll(".file-upload__button"),
-  function(button) {
-    const hiddenInput = button.parentElement.querySelector(
-      ".file-upload__input"
-    );
-    const label = button.parentElement.querySelector(".file-upload__label");
-    const defaultLabelText = "No file(s) selected";
 
-    // Set default text for label
-    label.textContent = defaultLabelText;
-    label.title = defaultLabelText;
-
-    button.addEventListener("click", function() {
-      hiddenInput.click();
-    });
-
-    hiddenInput.addEventListener("change", function() {
-      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
-        file
-      ) {
-        return file.name;
-      });
-
-      label.textContent = filenameList.join(", ") || defaultLabelText;
-      label.title = label.textContent;
-    });
-  }
-);
 
 
 //Selection des elements
@@ -205,26 +177,61 @@ $(document).on('click', '.saveBtn', function(event)
 function changeColor(color) {
     let table = document.getElementById('table');
     let banniere = document.getElementById('banniere');
-    let ligneTitre = document.getElementById('ligneTitre');
-    //let uploadButton = document.querySelectorAll('myFile');
     let menu = document.getElementById('menu');
-    table.style.backgroundColor= color;
-    table.style.borderBottom= '2px solid'+ color;
-    table.style.opacity= '0.6';
-    table.style.color= 'black';
+
+
+    //table.style.borderBottom= '2px solid'+ color;
     banniere.style.backgroundColor = color;
-    ligneTitre.style.backgroundColor = color;
+
+
     $("#ligneTitre").css( 'background-color', color );
-    ligneTitre.style.opacity = '1';
+
     menu.style.backgroundColor = color;
-    //document.querySelectorAll('.file-upload__button').style.backgroundColor = color;
+
     $(".file-upload__button").css( 'background-color', color );
     $(".file-upload__button").css( 'border', color );
-    $(".file-upload__button").css( 'opacity', "1" );
+    $("tbody").css( 'border-bottom', "2px solid" + color );
+
+
+    $('.ligneHover').hover(function(){
+      $(this).css("color", color);
+      }, function(){
+      $(this).css("color", "");
+    });
+
       for (let e of document.querySelectorAll("th")) {e.style.backgroundColor= color;
             e.style.opacity= "1";}
 }
 
+Array.prototype.forEach.call(
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "No file(s) selected";
+
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
+
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
+
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
+
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
+);
 //Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
 document.getElementById("btnAjout").addEventListener("click", ()=> {
     cpt++;
@@ -239,19 +246,19 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 
     //Creation d'un template pour les nouvelles lignes
     let template = `
-                <tr id="row">
+                <tr id="row" class="ligneHover">
                     <td><div class="cell" edit_type="dblclick">${date}</div></td>
                     <td><div class="cell" edit_type="dblclick">${heure}</div></td>
                     <td><div class="cell" edit_type="dblclick">${coordonnees}</div></td>
                     <td><div class="cell" edit_type="dblclick">${lieu}</div></td>
                     <td><div class="cell" edit_type="dblclick">${evenement}</div></td>
                     <td><div class="cell" edit_type="dblclick">${kia}</div></td>
-                    <td><div class="cell" edit_type="dblclick">${image}
+                    <td>
                     <div class="file-upload">
                             <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
                             <button class="file-upload__button" type="button">Choose File(s)</button>
                             <span class="file-upload__label"></span>
-                        </div>
+
                         </div></td>
                     <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
