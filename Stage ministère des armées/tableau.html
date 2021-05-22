@@ -48,6 +48,7 @@
             <label for="evenement">Evenement</label>
             <input type="text" id="evenement" placeholder="Entrer evenement">
             <label for="kia">KIA</label>
+            <input type="file" id="image" placeholder="Entrer image">
             <input type="number" id="kia" placeholder="Entrer KIA">
 
             <br><br>
@@ -66,7 +67,7 @@
 
     <div  class="tableFixHead" id="divTableau">
         <!--Section d'affichage du tableau-->
-        <table class="content-table table-hover table-sortable" id="tableau" >
+        <table class=" table-striped content-table table-hover table-sortable " id="tableau" >
             <!--Entete du tableau-->
             <thead>
             <tr id="ligneTitre">
@@ -83,7 +84,7 @@
             </thead>
             <!--Corps du tableau-->
             <tbody id="table">
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
                 <td><div class="cell" edit_type="dblclick">13:05</div></td>
                 <td><div class="cell" edit_type="dblclick">123456789</div></td>
@@ -92,14 +93,14 @@
                 <td><div class="cell" edit_type="dblclick">1</div></td>
                 <td><div class="cell" edit_type="dblclick">
                     <div class="file-upload">
-                    <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+                    <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple hidden>
                     <button class="file-upload__button" type="button">Choose File(s)</button>
                     <span class="file-upload__label"></span>
                 </div>
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
                 <td><div class="cell" edit_type="dblclick">23:05</div></td>
                 <td><div class="cell" edit_type="dblclick">234567891</div></td>
@@ -115,7 +116,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
                 <td><div class="cell" edit_type="dblclick">20:05</div></td>
                 <td><div class="cell" edit_type="dblclick">345678912</div></td>
@@ -131,7 +132,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
                 <td><div class="cell" edit_type="dblclick">20:05</div></td>
                 <td><div class="cell" edit_type="dblclick">456789123</div></td>
@@ -147,7 +148,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
                 <td><div class="cell" edit_type="dblclick">12:10</div></td>
                 <td><div class="cell" edit_type="dblclick">567891234</div></td>
@@ -163,7 +164,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
                 <td><div class="cell" edit_type="dblclick">17:30</div></td>
                 <td><div class="cell" edit_type="dblclick">678912345</div></td>
@@ -179,7 +180,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
                 <td><div class="cell" edit_type="dblclick">13:05</div></td>
                 <td><div class="cell" edit_type="dblclick">123456789</div></td>
@@ -195,7 +196,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
                 <td><div class="cell" edit_type="dblclick">23:05</div></td>
                 <td><div class="cell" edit_type="dblclick">234567891</div></td>
@@ -211,7 +212,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
                 <td><div class="cell" edit_type="dblclick">20:05</div></td>
                 <td><div class="cell" edit_type="dblclick">345678912</div></td>
@@ -227,7 +228,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
                 <td><div class="cell" edit_type="dblclick">20:05</div></td>
                 <td><div class="cell" edit_type="dblclick">456789123</div></td>
@@ -243,7 +244,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
                 <td><div class="cell" edit_type="dblclick">12:10</div></td>
                 <td><div class="cell" edit_type="dblclick">567891234</div></td>
@@ -259,7 +260,7 @@
                 </div></td>
                 <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
             </tr>
-            <tr id="row">
+            <tr id="row" class="ligneHover">
                 <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
                 <td><div class="cell" edit_type="dblclick">17:30</div></td>
                 <td><div class="cell" edit_type="dblclick">678912345</div></td>
@@ -284,10 +285,10 @@
         <button type="button" class="toggleBtn"  id="menu">Options de personnalisation</button>
         <div class="toggle_content" style="max-height: 500px;">
             <br>
-            <button onclick = "changeColor('#6f6ff0a2');">Bleu</button>
-            <button onclick = "changeColor('#085848');">Vert</button>
-            <button onclick = "changeColor('#f07474');">Rouge</button>
-            <button onclick = "changeColor('#8a8324');">Jaune</button>
+            <button onclick = "changeColor('#0085FC');">Bleu</button>
+            <button onclick = "changeColor('#8B8930');">Vert</button>
+            <button onclick = "changeColor('#FD4B72');">Rose</button>
+            <button onclick = "changeColor('#F39E2E');">Jaune</button>
             <br><br>
             <button onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
             <button onclick="logoTerre()" id="logoTerre">Armee de terre</button>

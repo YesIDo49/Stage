@@ -40,6 +40,11 @@
   font-family: "Quicksand", sans-serif;
 }
 
+#row:hover{
+    color :  #009879;
+    transition : 0.5s;
+}
+
 
 
 /*Début des id*/
@@ -140,15 +145,8 @@ height: 75px;
   padding: 12px 15px;
 }
 
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
 
-.content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.content-table tbody:last-of-type {
+.content-table {
   border-bottom: 2px solid #009879;
 }
 
