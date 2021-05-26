@@ -1,6 +1,3 @@
-
-
-
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -48,7 +45,7 @@ $(document).find('.cancelBtn').hide();
 $(document).on('dblclick', '.cell', function(event)
 {
     event.preventDefault();
-
+    
 
     if($(this).attr('edit_type') == 'button')
     {
@@ -79,7 +76,7 @@ $(document).on('focusout', '.cell', function(event)
     $(this)
         .removeClass('bg-warning') //add bg css
         .css('padding','')
-
+        
 
 })
 //Fin < On enregistre la modification de la cellule en cliquant autre part > Fin
@@ -104,7 +101,7 @@ $(document).on('click', '.editBtn', function(event)
         .attr('edit_type', 'button')
         .addClass('bg-warning')
         .css('padding','3px')
-
+        
 
     //Ajoute la valeur entrée > début
     tbl_row.find('.cell').each(function(index, val)
@@ -192,47 +189,63 @@ function changeColor(color) {
     $(".file-upload__button").css( 'border', color );
     $(".content-table").css( 'border-bottom', "2px solid" + color );
 
+    $(".option").css( 'background-color', color );
+    $(".option").css( 'border', color );
+
+    $(".cancelBtn").css( 'background-color', color );
+    $(".cancelBtn").css( 'border', color );
+
+    $(".editBtn").css( 'background-color', color );
+    $(".editBtn").css( 'border', color );
+
+    $(".saveBtn").css( 'background-color', color );
+    $(".saveBtn").css( 'border', color );
+
+    $(".deleteBtn").css( 'background-color', color );
+    $(".deleteBtn").css( 'border', color );
+
+    $("#btnAjout").css( 'background-color', color );
+    $("#btnAjout").css( 'border', color );
 
     $('.ligneHover').hover(function(){
-        $(this).css("color", color);
-    }, function(){
-        $(this).css("color", "");
+      $(this).css("color", color);
+      }, function(){
+      $(this).css("color", "");
     });
 
-    for (let e of document.querySelectorAll("th")) {e.style.backgroundColor= color;
-        e.style.opacity= "1";}
+      for (let e of document.querySelectorAll("th")) {e.style.backgroundColor= color;
+            e.style.opacity= "1";}
 }
 
 Array.prototype.forEach.call(
-    document.querySelectorAll(".file-upload__button"),
-    function(button) {
-        const hiddenInput = button.parentElement.querySelector(
-            ".file-upload__input"
-        );
-        const label = button.parentElement.querySelector(".file-upload__label");
-        const defaultLabelText = "No file(s) selected";
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "No file(s) selected";
 
-        // Set default text for label
-        label.textContent = defaultLabelText;
-        label.title = defaultLabelText;
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
 
-        button.addEventListener("click", function() {
-            hiddenInput.click();
-        });
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
 
-        hiddenInput.addEventListener("change", function() {
-            const filenameList = Array.prototype.map.call(hiddenInput.files, function(
-                file
-            ) {
-                return file.name;
-            });
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
 
-            label.textContent = filenameList.join(", ") || defaultLabelText;
-            label.title = label.textContent;
-        });
-    }
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
 );
-
 //Ajout d'une nouvelle ligne lorsqu'on clique sur le bouton "Ajouter"
 document.getElementById("btnAjout").addEventListener("click", ()=> {
     cpt++;
@@ -256,8 +269,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
                     <td><div class="cell" edit_type="dblclick">${kia}</div></td>
                     <td>
                     <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                         
+                            <input class="file-upload__input" type="file" name="myFile[]" multiple>
                         </div></td>
                     <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
@@ -272,7 +284,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 //Suppression d'une ligne du tableau
 function supprimerLigne(e){
     //On ne supprime pas la ligne si on clique autre part que sur le bouton
-    if (!e.target.classList.contains("deleteBtn")) {
+    if (!e.target.classList.contains("deleteBtn")) {   
         return;
     }
 
@@ -283,10 +295,10 @@ function supprimerLigne(e){
     if(confirm("Voulez vous supprimer la ligne ?")){
         btn.closest("tr").remove();
         alert("La ligne a été supprimée");
-
+    
     }
 
-
+    
 }
 
 table.addEventListener('click', supprimerLigne);
@@ -336,7 +348,7 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
     });
 });
 
-$(document).ready(function(){
+    $(document).ready(function(){
     $("#searchBox").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#table tr").filter(function() {
@@ -346,80 +358,23 @@ $(document).ready(function(){
 });
 
 //Fonction pour le menu déroulant de personnalisation
-document.querySelectorAll('.toggleBtn').forEach(button =>{
-    button.addEventListener('click', () => {
-        const toggleContent = button.nextElementSibling;
-        button.classList.toggle('toggleBtn--active');
-        if (button.classList.contains('toggleBtn--active')){
-            toggleContent.style.maxHeight = toggleContent.scrollHeight + 'px';
-        }
-        else{
-            toggleContent.style.maxHeight = 0;
-        }
+    document.querySelectorAll('.toggleBtn').forEach(button =>{
+        button.addEventListener('click', () => {
+            const toggleContent = button.nextElementSibling;
+            button.classList.toggle('toggleBtn--active');
+            if (button.classList.contains('toggleBtn--active')){
+                toggleContent.style.maxHeight = toggleContent.scrollHeight + 'px';
+            }
+            else{
+                toggleContent.style.maxHeight = 0;
+            }
 
+        });
     });
-});
 
 $('#jsonBtn').click( function() {
     var table = $('#tableau').tableToJSON();
     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
-    $('<a href="data:' + data + '" download="table.json">table.json</a>').appendTo('#dlJson');
+    $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
 
 });
-
-class TableCSVExporter {
-    //inclusion de l'entete du tableau dans le CSV
-    constructor (table, includeHeaders = true) {
-        this.table = table;
-        //Array de tous les tr
-        this.rows = Array.from(table.querySelectorAll("tr"));
-
-        //si on a une entete et qu'on ne veut pas l'inclure (si length th > 1)
-        if (!includeHeaders && this.rows[0].querySelectorAll("th").length) {
-            //shift retire le premier element
-            this.rows.shift();
-        }
-    }
-
-    convertToCSV () {
-        const lines = [];
-        const numCols = this._findLongestRowLength();
-
-        for (const row of this.rows) {
-            let line = "";
-
-            for (let i = 0; i < numCols; i++) {
-                //verifie qu'il y a une cellule à l'index donne
-                if (row.children[i] !== undefined) {
-                    line += TableCSVExporter.parseCell(row.children[i]);
-                }
-
-                //ajout d'une virgule si on a pas la derniere colonne
-                //pas d'ajout de virgule si on est pas a la deerniere colonne
-                line += (i !== (numCols - 1)) ? "," : "";
-            }
-
-            lines.push(line);
-        }
-
-        return lines.join("\n");
-    }
-
-    //fournit le nombre maximal de colonnes du tableau
-    _findLongestRowLength () {
-        return this.rows.reduce((l, row) => row.childElementCount > l ? row.childElementCount : l, 0);
-    }
-
-    //implemente les elements d'un fichier CSV
-    static parseCell (tableCell) {
-        let parsedValue = tableCell.textContent;
-
-        // Replace all double quotes with two double quotes
-        parsedValue = parsedValue.replace(/"/g, `""`);
-
-        // If value contains comma, new-line or double-quote, enclose in double quotes
-        parsedValue = /[",\n]/.test(parsedValue) ? `"${parsedValue}"` : parsedValue;
-
-        return parsedValue;
-    }
-}

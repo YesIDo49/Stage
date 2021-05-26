@@ -19,13 +19,13 @@
     <div class="row">
         <!--La classe bg-info ajoute un fond bleu à l'élément-->
         <div class="col-2">
-            <img id="logo1" src="images/armée.png">
+            <img id="img1" src="#" alt="" />
         </div>
         <!--La classe bg-warning ajoute un fond jaune à l'élément-->
         <div class="col-8 cell" id="banniere" edit_type="dblclick"><h1>MON OPERATION</h1></div>
         <!--La classe bg-success ajoute un fond vert à l'élément-->
         <div class="col-2">
-            <img id="logo2" src="images/armée.png">
+            <img id="img2" src="#" alt="" />
         </div>
     </div>
 </div>
@@ -266,6 +266,12 @@
         <button class="option" onclick = "changeColor('#FD4B72');">Rose</button>
         <button class="option" onclick = "changeColor('#F39E2E');">Jaune</button>
         <br><br>
+        <form id="form1" runat="server">
+            <input type='file' id="imgInp1" />
+        </form>
+
+
+        <br>
         <button class="option" onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
         <button class="option" onclick="logoTerre()" id="logoTerre">Armee de terre</button>
         <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
