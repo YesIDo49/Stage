@@ -1,6 +1,3 @@
-
-
-
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -192,6 +189,23 @@ function changeColor(color) {
     $(".file-upload__button").css( 'border', color );
     $(".content-table").css( 'border-bottom', "2px solid" + color );
 
+    $(".option").css( 'background-color', color );
+    $(".option").css( 'border', color );
+
+    $(".cancelBtn").css( 'background-color', color );
+    $(".cancelBtn").css( 'border', color );
+
+    $(".editBtn").css( 'background-color', color );
+    $(".editBtn").css( 'border', color );
+
+    $(".saveBtn").css( 'background-color', color );
+    $(".saveBtn").css( 'border', color );
+
+    $(".deleteBtn").css( 'background-color', color );
+    $(".deleteBtn").css( 'border', color );
+
+    $("#btnAjout").css( 'background-color', color );
+    $("#btnAjout").css( 'border', color );
 
     $('.ligneHover').hover(function(){
       $(this).css("color", color);
@@ -255,10 +269,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
                     <td><div class="cell" edit_type="dblclick">${kia}</div></td>
                     <td>
                     <div class="file-upload">
-                            <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
-                            <button class="file-upload__button" type="button">Choose File(s)</button>
-                            <span class="file-upload__label"></span>
-
+                            <input class="file-upload__input" type="file" name="myFile[]" multiple>
                         </div></td>
                     <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;

@@ -2,6 +2,7 @@
   font-family: 'Varela Round', sans-serif;; /* Change your font family */
 }
 
+
 .file-upload {
   display: inline-flex;
   align-items: center;
@@ -9,7 +10,103 @@
 }
 
 .file-upload__input {
-  display: none;
+
+}
+
+#btnAjout{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+#btnAjout:hover{
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.option{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.option:hover{
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.editBtn{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.editBtn:hover{
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.saveBtn{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.saveBtn:hover{
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.cancelBtn{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.cancelBtn:hover{
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.deleteBtn{
+  -webkit-appearance: none;
+  background-color: #009879;
+  border: 2px solid #009879;
+  border-radius: 4px;
+  padding: 0.5em 0.5em;
+  margin: auto;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.deleteBtn:hover{
+  opacity: 0.6;
+  transition: 0.5s;
 }
 
 .file-upload__button {
@@ -159,7 +256,7 @@ height: 75px;
 /*Début < Permet de défiler/scroller sur le tableau*/
 .tableFixHead{
 overflow-y: scroll;
-height: 400px;
+height: 250px;
 }
 
 .tableFixHead thead th{
@@ -202,6 +299,11 @@ cursor: pointer;
 background-color: #009879;
 transition: 0.2s;
 color:#ffffff;
+}
+
+.toggleBtn:hover{
+  opacity: 0.6;
+  transition: 0.5s;
 }
 
 .toggleBtn::after{
