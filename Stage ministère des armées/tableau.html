@@ -1,337 +1,336 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="tableau.css">
-        <link rel="shortcut icon" href="/assets/favicon.ico">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="jquery-3.6.0.js"></script>
-        <title>Stage</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="tableau.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="jquery-3.6.0.js"></script>
+    <title>Stage</title>
+</head>
 
-    <body>
-    <br>
+<body>
+<br>
 
-      <div class="container">
-        <div class="row">
-            <!--La classe bg-info ajoute un fond bleu à l'élément-->
-            <div class="col-2">
-                <img id="logo1" src="images/armée.png">
-            </div>
-            <!--La classe bg-warning ajoute un fond jaune à l'élément-->
-            <div class="col-8 cell" id="banniere" edit_type="dblclick"><h1>MON OPERATION</h1></div>
-            <!--La classe bg-success ajoute un fond vert à l'élément-->
-            <div class="col-2">
-                <img id="logo2" src="images/armée.png">
-            </div>
+<div class="container">
+    <div class="row">
+        <!--La classe bg-info ajoute un fond bleu à l'élément-->
+        <div class="col-2">
+            <img id="logo1" src="images/armée.png">
+        </div>
+        <!--La classe bg-warning ajoute un fond jaune à l'élément-->
+        <div class="col-8 cell" id="banniere" edit_type="dblclick"><h1>MON OPERATION</h1></div>
+        <!--La classe bg-success ajoute un fond vert à l'élément-->
+        <div class="col-2">
+            <img id="logo2" src="images/armée.png">
         </div>
     </div>
+</div>
 
-    <br>
+<br>
 
-    <div id="divAjout">
-        <!--Section necessaire à l'ajout d'un element dans le tableau-->
-        <h2>Section d'ajout</h2>
-        <!--Creation des champs pour l'ajout et de leurs etiquettes-->
-        <div id="data">
-            <label for="date">Date</label>
-            <input type="date" id="date" placeholder="Entrer date">
-            <label for="heure">Heure</label>
-            <input type="time" id="heure" placeholder="Entrer heure">
-            <label for="coordonnees">Coordonnees</label>
-            <input type="text" id="coordonnees" placeholder="Entrer coordonnees">
-            <label for="lieu">Lieu</label>
-            <input type="text" id="lieu" placeholder="Entrer lieu">
-            <label for="evenement">Evenement</label>
-            <input type="text" id="evenement" placeholder="Entrer evenement">
-            <label for="kia">KIA</label>
-            <input type="number" id="kia" placeholder="Entrer KIA">
+<div id="divAjout">
+    <!--Section necessaire à l'ajout d'un element dans le tableau-->
+    <h2>Section d'ajout</h2>
+    <!--Creation des champs pour l'ajout et de leurs etiquettes-->
+    <div id="data">
+        <label for="date">Date</label>
+        <input type="date" id="date" placeholder="Entrer date">
+        <label for="heure">Heure</label>
+        <input type="time" id="heure" placeholder="Entrer heure">
+        <label for="coordonnees">Coordonnees</label>
+        <input type="text" id="coordonnees" placeholder="Entrer coordonnees">
+        <label for="lieu">Lieu</label>
+        <input type="text" id="lieu" placeholder="Entrer lieu">
+        <label for="evenement">Evenement</label>
+        <input type="text" id="evenement" placeholder="Entrer evenement">
+        <label for="kia">KIA</label>
+        <input type="file" id="image" placeholder="Entrer image">
+        <input type="number" id="kia" placeholder="Entrer KIA">
 
-            <br><br>
-            <!--Bouton pour ajouter la ligne dans le tableau-->
-            <button id="btnAjout">Ajouter</button>
-        </div>
+        <br><br>
+        <!--Bouton pour ajouter la ligne dans le tableau-->
+        <button id="btnAjout">Ajouter</button>
     </div>
+</div>
 
-    <br>
-    <!--Barre de recherche-->
-    <div id="search">
-        <input id="searchBox" type="text" placeholder="Recherche...">
-    </div>
+<br>
+<!--Barre de recherche-->
+<div id="search">
+    <input id="searchBox" type="text" placeholder="Recherche...">
+</div>
 
-    <br>
+<br>
 
-    <div  class="tableFixHead" id="divTableau">
-        <!--Section d'affichage du tableau-->
-        <table class=" table-striped content-table table-hover table-sortable " id="tableau" >
-            <!--Entete du tableau-->
-            <thead>
-            <tr id="ligneTitre">
-                <th><div class="cell" edit_type="dblclick">Date</div></th>
-                <th><div class="cell" edit_type="dblclick">Heure</div></th>
-                <th><div class="cell" edit_type="dblclick">Coordonnees</div></th>
-                <th><div class="cell" edit_type="dblclick">Lieux</div></th>
-                <th><div class="cell" edit_type="dblclick">Evenement</div></th>
-                <th><div class="cell" edit_type="dblclick">KIA</div></th>
-                <th><div class="cell" edit_type="dblclick">Image</div></th>
-                <!--Colonne pour les boutons-->
-                <th>Options</th>
-            </tr>
-            </thead>
-            <!--Corps du tableau-->
-            <tbody id="table">
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
-                <td><div class="cell" edit_type="dblclick">13:05</div></td>
-                <td><div class="cell" edit_type="dblclick">123456789</div></td>
-                <td><div class="cell" edit_type="dblclick">Parisé</div></td>
-                <td><div class="cell" edit_type="dblclick">Accident</div></td>
-                <td><div class="cell" edit_type="dblclick">1</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
+<div  class="tableFixHead" id="divTableau">
+    <!--Section d'affichage du tableau-->
+    <table class=" table-striped content-table table-hover table-sortable " id="tableau" >
+        <!--Entete du tableau-->
+        <thead>
+        <tr id="ligneTitre">
+            <th><div class="cell" edit_type="dblclick">Date</div></th>
+            <th><div class="cell" edit_type="dblclick">Heure</div></th>
+            <th><div class="cell" edit_type="dblclick">Coordonnees</div></th>
+            <th><div class="cell" edit_type="dblclick">Lieux</div></th>
+            <th><div class="cell" edit_type="dblclick">Evenement</div></th>
+            <th><div class="cell" edit_type="dblclick">KIA</div></th>
+            <th><div class="cell" edit_type="dblclick">Image</div></th>
+            <!--Colonne pour les boutons-->
+            <th>Options</th>
+        </tr>
+        </thead>
+        <!--Corps du tableau-->
+        <tbody id="table">
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
+            <td><div class="cell" edit_type="dblclick">13:05</div></td>
+            <td><div class="cell" edit_type="dblclick">123456789</div></td>
+            <td><div class="cell" edit_type="dblclick">Parisé</div></td>
+            <td><div class="cell" edit_type="dblclick">Accident</div></td>
+            <td><div class="cell" edit_type="dblclick">1</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
                     <input class="file-upload__input" type="file" name="myFile[]" multiple>
                 </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
-                <td><div class="cell" edit_type="dblclick">23:05</div></td>
-                <td><div class="cell" edit_type="dblclick">234567891</div></td>
-                <td><div class="cell" edit_type="dblclick">Parise</div></td>
-                <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
-                <td><div class="cell" edit_type="dblclick">2</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
-                <td><div class="cell" edit_type="dblclick">20:05</div></td>
-                <td><div class="cell" edit_type="dblclick">345678912</div></td>
-                <td><div class="cell" edit_type="dblclick">Dubai</div></td>
-                <td><div class="cell" edit_type="dblclick">Crash</div></td>
-                <td><div class="cell" edit_type="dblclick">7</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
-                <td><div class="cell" edit_type="dblclick">20:05</div></td>
-                <td><div class="cell" edit_type="dblclick">456789123</div></td>
-                <td><div class="cell" edit_type="dblclick">Cuba</div></td>
-                <td><div class="cell" edit_type="dblclick">Drogue</div></td>
-                <td><div class="cell" edit_type="dblclick">3</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
-                <td><div class="cell" edit_type="dblclick">12:10</div></td>
-                <td><div class="cell" edit_type="dblclick">567891234</div></td>
-                <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
-                <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
-                <td><div class="cell" edit_type="dblclick">23</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
-                <td><div class="cell" edit_type="dblclick">17:30</div></td>
-                <td><div class="cell" edit_type="dblclick">678912345</div></td>
-                <td><div class="cell" edit_type="dblclick">Seoul</div></td>
-                <td><div class="cell" edit_type="dblclick">Bombe</div></td>
-                <td><div class="cell" edit_type="dblclick">239</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
-                <td><div class="cell" edit_type="dblclick">13:05</div></td>
-                <td><div class="cell" edit_type="dblclick">123456789</div></td>
-                <td><div class="cell" edit_type="dblclick">Paris</div></td>
-                <td><div class="cell" edit_type="dblclick">Accident</div></td>
-                <td><div class="cell" edit_type="dblclick">1</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
-                <td><div class="cell" edit_type="dblclick">23:05</div></td>
-                <td><div class="cell" edit_type="dblclick">234567891</div></td>
-                <td><div class="cell" edit_type="dblclick">New York</div></td>
-                <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
-                <td><div class="cell" edit_type="dblclick">2</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
-                <td><div class="cell" edit_type="dblclick">20:05</div></td>
-                <td><div class="cell" edit_type="dblclick">345678912</div></td>
-                <td><div class="cell" edit_type="dblclick">Dubai</div></td>
-                <td><div class="cell" edit_type="dblclick">Crash</div></td>
-                <td><div class="cell" edit_type="dblclick">7</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
-                <td><div class="cell" edit_type="dblclick">20:05</div></td>
-                <td><div class="cell" edit_type="dblclick">456789123</div></td>
-                <td><div class="cell" edit_type="dblclick">Cuba</div></td>
-                <td><div class="cell" edit_type="dblclick">Drogue</div></td>
-                <td><div class="cell" edit_type="dblclick">3</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
-                <td><div class="cell" edit_type="dblclick">12:10</div></td>
-                <td><div class="cell" edit_type="dblclick">567891234</div></td>
-                <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
-                <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
-                <td><div class="cell" edit_type="dblclick">23</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            <tr id="row" class="ligneHover">
-                <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
-                <td><div class="cell" edit_type="dblclick">17:30</div></td>
-                <td><div class="cell" edit_type="dblclick">678912345</div></td>
-                <td><div class="cell" edit_type="dblclick">Seoul</div></td>
-                <td><div class="cell" edit_type="dblclick">Bombe</div></td>
-                <td><div class="cell" edit_type="dblclick">239</div></td>
-                <td><div class="cell" edit_type="dblclick">
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" name="myFile[]" multiple>
-                    </div>
-                </div></td>
-                <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
-            </tr>
-            </tbody>
-        </table> <br>
-
-
-    </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
+            <td><div class="cell" edit_type="dblclick">23:05</div></td>
+            <td><div class="cell" edit_type="dblclick">234567891</div></td>
+            <td><div class="cell" edit_type="dblclick">Parise</div></td>
+            <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
+            <td><div class="cell" edit_type="dblclick">2</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
+            <td><div class="cell" edit_type="dblclick">20:05</div></td>
+            <td><div class="cell" edit_type="dblclick">345678912</div></td>
+            <td><div class="cell" edit_type="dblclick">Dubai</div></td>
+            <td><div class="cell" edit_type="dblclick">Crash</div></td>
+            <td><div class="cell" edit_type="dblclick">7</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
+            <td><div class="cell" edit_type="dblclick">20:05</div></td>
+            <td><div class="cell" edit_type="dblclick">456789123</div></td>
+            <td><div class="cell" edit_type="dblclick">Cuba</div></td>
+            <td><div class="cell" edit_type="dblclick">Drogue</div></td>
+            <td><div class="cell" edit_type="dblclick">3</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+            <td><div class="cell" edit_type="dblclick">12:10</div></td>
+            <td><div class="cell" edit_type="dblclick">567891234</div></td>
+            <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
+            <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
+            <td><div class="cell" edit_type="dblclick">23</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+            <td><div class="cell" edit_type="dblclick">17:30</div></td>
+            <td><div class="cell" edit_type="dblclick">678912345</div></td>
+            <td><div class="cell" edit_type="dblclick">Seoul</div></td>
+            <td><div class="cell" edit_type="dblclick">Bombe</div></td>
+            <td><div class="cell" edit_type="dblclick">239</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-05-01</div></td>
+            <td><div class="cell" edit_type="dblclick">13:05</div></td>
+            <td><div class="cell" edit_type="dblclick">123456789</div></td>
+            <td><div class="cell" edit_type="dblclick">Paris</div></td>
+            <td><div class="cell" edit_type="dblclick">Accident</div></td>
+            <td><div class="cell" edit_type="dblclick">1</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-06-01</div></td>
+            <td><div class="cell" edit_type="dblclick">23:05</div></td>
+            <td><div class="cell" edit_type="dblclick">234567891</div></td>
+            <td><div class="cell" edit_type="dblclick">New York</div></td>
+            <td><div class="cell" edit_type="dblclick">Colis suspect</div></td>
+            <td><div class="cell" edit_type="dblclick">2</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-07-01</div></td>
+            <td><div class="cell" edit_type="dblclick">20:05</div></td>
+            <td><div class="cell" edit_type="dblclick">345678912</div></td>
+            <td><div class="cell" edit_type="dblclick">Dubai</div></td>
+            <td><div class="cell" edit_type="dblclick">Crash</div></td>
+            <td><div class="cell" edit_type="dblclick">7</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-08-01</div></td>
+            <td><div class="cell" edit_type="dblclick">20:05</div></td>
+            <td><div class="cell" edit_type="dblclick">456789123</div></td>
+            <td><div class="cell" edit_type="dblclick">Cuba</div></td>
+            <td><div class="cell" edit_type="dblclick">Drogue</div></td>
+            <td><div class="cell" edit_type="dblclick">3</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+            <td><div class="cell" edit_type="dblclick">12:10</div></td>
+            <td><div class="cell" edit_type="dblclick">567891234</div></td>
+            <td><div class="cell" edit_type="dblclick">Tokyo</div></td>
+            <td><div class="cell" edit_type="dblclick">Yakuza</div></td>
+            <td><div class="cell" edit_type="dblclick">23</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        <tr id="row" class="ligneHover">
+            <td><div class="cell" edit_type="dblclick">2021-09-01</div></td>
+            <td><div class="cell" edit_type="dblclick">17:30</div></td>
+            <td><div class="cell" edit_type="dblclick">678912345</div></td>
+            <td><div class="cell" edit_type="dblclick">Seoul</div></td>
+            <td><div class="cell" edit_type="dblclick">Bombe</div></td>
+            <td><div class="cell" edit_type="dblclick">239</div></td>
+            <td><div class="cell" edit_type="dblclick">
+                <div class="file-upload">
+                    <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                </div>
+            </div></td>
+            <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
+        </tr>
+        </tbody>
+    </table> <br>
+</div>
+<br>
+<!--Menu déroulant de personnalisation-->
+<div class="toggle">
+    <button type="button" class="toggleBtn"  id="menu">Options de personnalisation</button>
+    <div class="toggle_content" style="max-height: 500px;">
         <br>
-        <!--Menu déroulant de personnalisation-->
-    <div class="toggle">
-        <button type="button" class="toggleBtn"  id="menu">Options de personnalisation</button>
-        <div class="toggle_content" style="max-height: 500px;">
-            <br>
-            <button class="option" onclick = "changeColor('#0085FC');">Bleu</button>
-            <button class="option" onclick = "changeColor('#8B8930');">Vert</button>
-            <button class="option" onclick = "changeColor('#FD4B72');">Rose</button>
-            <button class="option" onclick = "changeColor('#F39E2E');">Jaune</button>
-            <br><br>
-            <button class="option" onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
-            <button class="option" onclick="logoTerre()" id="logoTerre">Armee de terre</button>
-            <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
-            <button class="option" onclick="logoMer()" id="logoMer">Marine nationale</button>
-            <div id="dlJson"><br>
+        <button class="option" onclick = "changeColor('#0085FC');">Bleu</button>
+        <button class="option" onclick = "changeColor('#8B8930');">Vert</button>
+        <button class="option" onclick = "changeColor('#FD4B72');">Rose</button>
+        <button class="option" onclick = "changeColor('#F39E2E');">Jaune</button>
+        <br><br>
+        <button class="option" onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
+        <button class="option" onclick="logoTerre()" id="logoTerre">Armee de terre</button>
+        <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
+        <button class="option" onclick="logoMer()" id="logoMer">Marine nationale</button>
+        <div id="dlJson"><br>
             <button class="option" id="jsonBtn">Télécharger<br></button>
-            </div>
-            <br>
         </div>
         <br>
     </div>
-
     <br>
-        <!--Lien du script-->
+</div>
 
-    <script src= "https://code.jquery.com/jquery-3.5.1.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js"
-            integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
-        <script src="tableau.js"></script>
-    <script>
-        $(document).ready(function () {
+<br>
+<!--Lien du script-->
+<script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js"
+        integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
+<script src="tableau.js"></script>
 
-            // FETCHING DATA FROM JSON FILE
-            $.getJSON("table.json",
-                function (data) {
-                    var operation = '';
+<script>
+    $(document).ready(function () {
 
-                    // ITERATING THROUGH OBJECTS
-                    $.each(data, function (key, value) {
+        // FETCHING DATA FROM JSON FILE
+        $.getJSON("table.json",
+            function (data) {
+                var operation = '';
 
-                        //CONSTRUCTION OF ROWS HAVING
-                        // DATA FROM JSON OBJECT
-                        operation += '<tr>';
-                        operation += '<td>' +
-                            value.Date + '</td>';
+                // ITERATING THROUGH OBJECTS
+                $.each(data, function (key, value) {
 
-                        operation += '<td>' +
-                            value.Heure + '</td>';
+                    //CONSTRUCTION OF ROWS HAVING
+                    // DATA FROM JSON OBJECT
+                    operation += '<tr>';
+                    operation += '<td>' +
+                        value.Date + '</td>';
 
-                        operation += '<td>' +
-                            value.Coordonnees + '</td>';
+                    operation += '<td>' +
+                        value.Heure + '</td>';
 
-                        operation += '<td>' +
-                            value.Lieux + '</td>';
+                    operation += '<td>' +
+                        value.Coordonnees + '</td>';
 
-                        operation += '<td>' +
-                            value.Evenement + '</td>';
+                    operation += '<td>' +
+                        value.Lieux + '</td>';
 
-                        operation += '<td>' +
-                            value.KIA + '</td>';
+                    operation += '<td>' +
+                        value.Evenement + '</td>';
 
-                        operation += '<td>' +
-                            value.Image + '</td>';
+                    operation += '<td>' +
+                        value.KIA + '</td>';
 
-                        operation += '</tr>';
-                    });
+                    operation += '<td>' +
+                        value.Image + '</td>';
 
-                    //INSERTING ROWS INTO TABLE
-                    $('#jsontotbl').append(operation);
+                    operation += '<td>' +
+                        value.Options + '</td>';
+
+                    operation += '</tr>';
                 });
-        });
+
+                //INSERTING ROWS INTO TABLE
+                $('#tableau').append(operation);
+            });
+    });
 
 
-    </script>
+</script>
 
-    </body>
-</html>
+</body>
