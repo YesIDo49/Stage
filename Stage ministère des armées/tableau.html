@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="tableau.css">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="jquery-3.6.0.js"></script>
@@ -271,16 +269,13 @@
         </form>
 
 
-        <br>
+        <br><!--
         <button class="option" onclick="logoArmee()" id="logoArmee">Ministère des armees</button>
         <button class="option" onclick="logoTerre()" id="logoTerre">Armee de terre</button>
         <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
         <button class="option" onclick="logoMer()" id="logoMer">Marine nationale</button>
-        <div id="dlJson"><br>
-            <button class="option" id="jsonBtn">Télécharger</button>
-        </div>
-        <div id="dlCSV">
-            <button id="btnExportToCsv" type="button" class="button">Export to CSV</button>
+        <div id="dlJson">--><br>
+            <button class="option" id="jsonBtn">Télécharger<br></button>
         </div>
         <br>
     </div>
@@ -338,28 +333,8 @@
                 $('#tableau').append(operation);
             });
     });
-</script>
 
-<script>
-    const dataTable = document.getElementById("tableau");
-    const btnExportToCsv = document.getElementById("btnExportToCsv");
 
-    btnExportToCsv.addEventListener("click", () => {
-        const exporter = new TableCSVExporter(dataTable);
-        const csvOutput = exporter.convertToCSV();
-        //blob: container of data for the csv output
-        const csvBlob = new Blob([csvOutput], { type: "text/csv" });
-        const blobUrl = URL.createObjectURL(csvBlob);
-        const anchorElement = document.createElement("a");
-
-        anchorElement.href = blobUrl;
-        anchorElement.download = "table-export.csv";
-        anchorElement.click();
-
-        setTimeout(() => {
-            URL.revokeObjectURL(blobUrl);
-        }, 500);
-    });
 </script>
 
 </body>
