@@ -2,6 +2,16 @@
   font-family: 'Varela Round', sans-serif;; /* Change your font family */
 }
 
+#img1{
+  width:150px;
+  display: inline-flex;
+}
+
+#img2{
+  width:150px;
+  display: inline-flex;
+}
+
 
 .file-upload {
   display: inline-flex;
@@ -256,7 +266,7 @@ height: 75px;
 /*Début < Permet de défiler/scroller sur le tableau*/
 .tableFixHead{
 overflow-y: scroll;
-height: 250px;
+height: 350px;
 }
 
 .tableFixHead thead th{

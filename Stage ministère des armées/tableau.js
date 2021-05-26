@@ -1,3 +1,20 @@
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#img1').attr('src', e.target.result);
+            $('#img2').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp1").change(function(){
+    readURL(this);
+});
+
 //Selection des elements
 let btnAdd = document.querySelector('button');
 let table = document.querySelector('table');
@@ -376,5 +393,6 @@ $('#jsonBtn').click( function() {
     var table = $('#tableau').tableToJSON();
     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
     $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
+
 
 });
