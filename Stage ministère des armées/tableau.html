@@ -48,6 +48,7 @@
         <label for="evenement">Evenement</label>
         <input type="text" id="evenement" placeholder="Entrer evenement">
         <label for="kia">KIA</label>
+        <input type="file" id="image" placeholder="Entrer image" hidden>
         <input type="number" id="kia" placeholder="Entrer KIA">
 
         <br><br>
@@ -270,7 +271,10 @@
         <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
         <button class="option" onclick="logoMer()" id="logoMer">Marine nationale</button>
         <div id="dlJson"><br>
-            <button class="option" id="jsonBtn">Télécharger<br></button>
+            <button class="option" id="jsonBtn">Télécharger</button>
+        </div>
+        <div id="dlCSV">
+            <button id="btnExportToCsv" type="button" class="button">Export to CSV</button>
         </div>
         <br>
     </div>
@@ -328,8 +332,28 @@
                 $('#tableau').append(operation);
             });
     });
+</script>
 
+<script>
+    const dataTable = document.getElementById("tableau");
+    const btnExportToCsv = document.getElementById("btnExportToCsv");
 
+    btnExportToCsv.addEventListener("click", () => {
+        const exporter = new TableCSVExporter(dataTable);
+        const csvOutput = exporter.convertToCSV();
+        //blob: container of data for the csv output
+        const csvBlob = new Blob([csvOutput], { type: "text/csv" });
+        const blobUrl = URL.createObjectURL(csvBlob);
+        const anchorElement = document.createElement("a");
+
+        anchorElement.href = blobUrl;
+        anchorElement.download = "table-export.csv";
+        anchorElement.click();
+
+        setTimeout(() => {
+            URL.revokeObjectURL(blobUrl);
+        }, 500);
+    });
 </script>
 
 </body>
