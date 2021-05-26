@@ -1,53 +1,113 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>GFG User Details</title>
+
+    <!-- INCLUDING JQUERY-->
+    <script src=
+                    "https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+
+    <!-- CSS FOR STYLING THE PAGE -->
     <style>
-        #preview{
-            width: 200px;
-            display: inline-block;
+        table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
         }
-        #preview img{
-            width: 100%;
+
+        h1 {
+            text-align: center;
+            color: #006600;
+            font-size: xx-large;
+            font-family: 'Gill Sans',
+            'Gill Sans MT', ' Calibri',
+            'Trebuchet MS', 'sans-serif';
+        }
+
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            font-weight: lighter;
         }
     </style>
 </head>
+
 <body>
-<form action="my-script.php" enctype="multipart/form-data" method="post">
-    <div><input type="file" onchange="handleFiles(files)" id="upload" multiple name="file"></div>
+<section>
+    <h1>GeeksForGeeks</h1>
 
-    <div><label for="upload"><span id="preview"></span></label></div>
+    <!-- TABLE CONSTRUCTION-->
+    <table id='table'>
+        <!-- HEADING FORMATION -->
+        <tr>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Coordonnees</th>
+            <th>Lieu</th>
+            <th>Evenement</th>
+            <th>KIA</th>
+            <th>Image</th>
+        </tr>
 
-</form>
+        <script>
+            $(document).ready(function () {
 
-<script>
-    function handleFiles(files) {
-        var imageType = /^image\//;
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            if (!imageType.test(file.type)) {
-                alert("veuillez sélectionner une image");
-            }else{
-                if(i == 0){
-                    preview.innerHTML = '';
-                }
-                var img = document.createElement("img");
-                img.classList.add("obj");
-                img.file = file;
-                preview.appendChild(img);
-                var reader = new FileReader();
-                reader.onload = ( function(aImg) {
-                    return function(e) {
-                        aImg.src = e.target.result;
-                    };
-                })(img);
+                // FETCHING DATA FROM JSON FILE
+                $.getJSON("table.json",
+                    function (data) {
+                        var operation = '';
 
-                reader.readAsDataURL(file);
-            }
+                        // ITERATING THROUGH OBJECTS
+                        $.each(data, function (key, value) {
 
-        }
-    }
-</script>
+                            //CONSTRUCTION OF ROWS HAVING
+                            // DATA FROM JSON OBJECT
+                            operation += '<tr>';
+                            operation += '<td>' +
+                                value.Date + '</td>';
+
+                            operation += '<td>' +
+                                value.Heure + '</td>';
+
+                            operation += '<td>' +
+                                value.Coordonnees + '</td>';
+
+                            operation += '<td>' +
+                                value.Lieu + '</td>';
+
+                            operation += '<td>' +
+                                value.Evenement + '</td>';
+
+                            operation += '<td>' +
+                                value.KIA + '</td>';
+
+                            operation += '<td>' +
+                                value.Image + '</td>';
+
+                            operation += '</tr>';
+                        });
+
+                        //INSERTING ROWS INTO TABLE
+                        $('#table').append(operation);
+                    });
+            });
+
+
+        </script>
+</section>
 </body>
+
 </html>
