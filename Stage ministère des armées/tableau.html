@@ -322,14 +322,11 @@
                         operation += '<td>' +
                             value.Image + '</td>';
 
-                        operation += '<td>' +
-                            value.Options + '</td>';
-
                         operation += '</tr>';
                     });
 
                     //INSERTING ROWS INTO TABLE
-                    $('#tableau').append(operation);
+                    $('#jsontotbl').append(operation);
                 });
         });
 
