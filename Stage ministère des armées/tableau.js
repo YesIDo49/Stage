@@ -367,3 +367,45 @@ $('#jsonBtn').click( function() {
     $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
 
 });
+
+$(document).ready(function () {
+
+    // FETCHING DATA FROM JSON FILE
+    $.getJSON("table.json",
+        function (data) {
+            var operation = '';
+
+            // ITERATING THROUGH OBJECTS
+            $.each(data, function (key, value) {
+
+                //CONSTRUCTION OF ROWS HAVING
+                // DATA FROM JSON OBJECT
+                operation += '<tr>';
+                operation += '<td>' +
+                    value.Date + '</td>';
+
+                operation += '<td>' +
+                    value.Heure + '</td>';
+
+                operation += '<td>' +
+                    value.Coordonnees + '</td>';
+
+                operation += '<td>' +
+                    value.Lieu + '</td>';
+
+                operation += '<td>' +
+                    value.Evenement + '</td>';
+
+                operation += '<td>' +
+                    value.KIA + '</td>';
+
+                operation += '<td>' +
+                    value.Image + '</td>';
+
+                operation += '</tr>';
+            });
+
+            //INSERTING ROWS INTO TABLE
+            $('#jsontotbl').append(operation);
+        });
+});

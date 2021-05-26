@@ -278,7 +278,9 @@
             </tr>
             </tbody>
         </table> <br>
-    </div>  
+
+
+    </div>
         <br>
         <!--Menu déroulant de personnalisation-->
     <div class="toggle">
@@ -304,9 +306,57 @@
 
     <br>
         <!--Lien du script-->
+
+    <script src= "https://code.jquery.com/jquery-3.5.1.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js"
             integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
         <script src="tableau.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // FETCHING DATA FROM JSON FILE
+            $.getJSON("table.json",
+                function (data) {
+                    var operation = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(data, function (key, value) {
+
+                        //CONSTRUCTION OF ROWS HAVING
+                        // DATA FROM JSON OBJECT
+                        operation += '<tr>';
+                        operation += '<td>' +
+                            value.Date + '</td>';
+
+                        operation += '<td>' +
+                            value.Heure + '</td>';
+
+                        operation += '<td>' +
+                            value.Coordonnees + '</td>';
+
+                        operation += '<td>' +
+                            value.Lieux + '</td>';
+
+                        operation += '<td>' +
+                            value.Evenement + '</td>';
+
+                        operation += '<td>' +
+                            value.KIA + '</td>';
+
+                        operation += '<td>' +
+                            value.Image + '</td>';
+
+                        operation += '</tr>';
+                    });
+
+                    //INSERTING ROWS INTO TABLE
+                    $('#jsontotbl').append(operation);
+                });
+        });
+
+
+    </script>
 
     </body>
 </html>
