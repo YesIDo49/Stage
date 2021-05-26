@@ -378,3 +378,68 @@ $('#jsonBtn').click( function() {
     $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
 
 });
+
+class TableCSVExporter {
+    constructor (table, includeHeaders = true) {
+        this.table = table;
+        this.rows = Array.from(table.querySelectorAll("tr"));
+
+        if (!includeHeaders && this.rows[0].querySelectorAll("th").length) {
+            this.rows.shift();
+        }
+    }
+
+    convertToCSV () {
+        const lines = [];
+        const numCols = this._findLongestRowLength();
+
+        for (const row of this.rows) {
+            let line = "";
+
+            for (let i = 0; i < numCols; i++) {
+                if (row.children[i] !== undefined) {
+                    line += TableCSVExporter.parseCell(row.children[i]);
+                }
+
+                line += (i !== (numCols - 1)) ? "," : "";
+            }
+
+            lines.push(line);
+        }
+
+        return lines.join("\n");
+    }
+
+    _findLongestRowLength () {
+        return this.rows.reduce((l, row) => row.childElementCount > l ? row.childElementCount : l, 0);
+    }
+
+    static parseCell (tableCell) {
+        let parsedValue = tableCell.textContent;
+
+        // Replace all double quotes with two double quotes
+        parsedValue = parsedValue.replace(/"/g, `""`);
+
+        // If value contains comma, new-line or double-quote, enclose in double quotes
+        parsedValue = /[",\n]/.test(parsedValue) ? `"${parsedValue}"` : parsedValue;
+
+        return parsedValue;
+    }
+}
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#img1').attr('src', e.target.result);
+            $('#img2').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp1").change(function(){
+    readURL(this);
+});

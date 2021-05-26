@@ -277,6 +277,7 @@
         <div id="dlJson">--><br>
             <button class="option" id="jsonBtn">Télécharger<br></button>
         </div>
+        <button id="btnExportToCsv" type="button" class="button">Export to CSV</button>
         <br>
     </div>
     <br>
@@ -335,6 +336,27 @@
     });
 
 
+</script>
+
+<script>
+    const dataTable = document.getElementById("tableau");
+    const btnExportToCsv = document.getElementById("btnExportToCsv");
+
+    btnExportToCsv.addEventListener("click", () => {
+        const exporter = new TableCSVExporter(dataTable);
+        const csvOutput = exporter.convertToCSV();
+        const csvBlob = new Blob([csvOutput], { type: "text/csv" });
+        const blobUrl = URL.createObjectURL(csvBlob);
+        const anchorElement = document.createElement("a");
+
+        anchorElement.href = blobUrl;
+        anchorElement.download = "table-export.csv";
+        anchorElement.click();
+
+        setTimeout(() => {
+            URL.revokeObjectURL(blobUrl);
+        }, 500);
+    });
 </script>
 
 </body>
