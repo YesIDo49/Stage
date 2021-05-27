@@ -224,7 +224,7 @@ Array.prototype.forEach.call(
       ".file-upload__input"
     );
     const label = button.parentElement.querySelector(".file-upload__label");
-    const defaultLabelText = "No file(s) selected";
+    const defaultLabelText = "Aucun fichier choisi";
 
     // Set default text for label
     label.textContent = defaultLabelText;
@@ -269,7 +269,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
                     <td><div class="cell" edit_type="dblclick">${kia}</div></td>
                     <td>
                     <div class="file-upload">
-                            <input class="file-upload__input" type="file" name="myFile[]" multiple>
+                            <input class="file-upload__input" type="file" name="myFilemyFile[]" multiple>
                         </div></td>
                     <td><button class="editBtn">Modifier</button> <button class="saveBtn">Enregistrer</button> <button class="cancelBtn">Annuler</button> <button class="deleteBtn">Supprimer</button></td>
                 </tr>`;
