@@ -17,13 +17,13 @@
     <div class="row">
         <!--La classe bg-info ajoute un fond bleu à l'élément-->
         <div class="col-2">
-            <img id="img1" src="#" alt="" />
+            <img id="img1" src="#" alt="logo" />
         </div>
         <!--La classe bg-warning ajoute un fond jaune à l'élément-->
         <div class="col-8 cell" id="banniere" edit_type="dblclick"><h1>MON OPERATION</h1></div>
         <!--La classe bg-success ajoute un fond vert à l'élément-->
         <div class="col-2">
-            <img id="img2" src="#" alt="" />
+            <img id="img2" src="#" alt="logo" />
         </div>
     </div>
 </div>
@@ -370,14 +370,16 @@
         var tblHeadObj = document.getElementById(tblId).tHead;
         for (var h=0; h<tblHeadObj.rows.length; h++) {
             var newTH = document.createElement('th');
+
             tblHeadObj.rows[h].appendChild(newTH);
-            newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+            newTH.innerHTML = '[th] ligne:' + h + ', colonne: ' + (tblHeadObj.rows[h].cells.length - 1)
         }
 
         var tblBodyObj = document.getElementById(tblId).tBodies[0];
         for (var i=0; i<tblBodyObj.rows.length; i++) {
             var newCell = tblBodyObj.rows[i].insertCell(-1);
-            newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+            newCell.setAttribute("id", "row");
+            newCell.innerHTML = '[td] ligne:' + i + ', colonne: ' + (tblBodyObj.rows[i].cells.length - 1)
         }
     }
     function deleteColumn(tblId)
