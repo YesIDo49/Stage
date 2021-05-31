@@ -45,7 +45,7 @@ $(document).find('.cancelBtn').hide();
 $(document).on('dblclick', '.cell', function(event)
 {
     event.preventDefault();
-    
+
 
     if($(this).attr('edit_type') == 'button')
     {
@@ -76,7 +76,7 @@ $(document).on('focusout', '.cell', function(event)
     $(this)
         .removeClass('bg-warning') //add bg css
         .css('padding','')
-        
+
 
 })
 //Fin < On enregistre la modification de la cellule en cliquant autre part > Fin
@@ -101,7 +101,7 @@ $(document).on('click', '.editBtn', function(event)
         .attr('edit_type', 'button')
         .addClass('bg-warning')
         .css('padding','3px')
-        
+
 
     //Ajoute la valeur entrée > début
     tbl_row.find('.cell').each(function(index, val)
@@ -284,7 +284,7 @@ document.getElementById("btnAjout").addEventListener("click", ()=> {
 //Suppression d'une ligne du tableau
 function supprimerLigne(e){
     //On ne supprime pas la ligne si on clique autre part que sur le bouton
-    if (!e.target.classList.contains("deleteBtn")) {   
+    if (!e.target.classList.contains("deleteBtn")) {
         return;
     }
 
@@ -295,10 +295,10 @@ function supprimerLigne(e){
     if(confirm("Voulez vous supprimer la ligne ?")){
         btn.closest("tr").remove();
         alert("La ligne a été supprimée");
-    
+
     }
 
-    
+
 }
 
 table.addEventListener('click', supprimerLigne);
@@ -372,7 +372,7 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
         });
     });
 
-$('#jsonBtn').click( function() {
+$('#jsonBtn').click(function() {
     var table = $('#tableau').tableToJSON();
     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(table));
     $('<a href="data:' + data + '" download="table.json"><br>table.json</a>').appendTo('#dlJson');
@@ -443,3 +443,4 @@ function readURL(input) {
 $("#imgInp1").change(function(){
     readURL(this);
 });
+

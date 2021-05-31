@@ -17,13 +17,13 @@
     <div class="row">
         <!--La classe bg-info ajoute un fond bleu à l'élément-->
         <div class="col-2">
-            <img id="img1" src="#" alt="logo" />
+            <img id="img1" src="#" alt="" />
         </div>
         <!--La classe bg-warning ajoute un fond jaune à l'élément-->
         <div class="col-8 cell" id="banniere" edit_type="dblclick"><h1>MON OPERATION</h1></div>
         <!--La classe bg-success ajoute un fond vert à l'élément-->
         <div class="col-2">
-            <img id="img2" src="#" alt="logo" />
+            <img id="img2" src="#" alt="" />
         </div>
     </div>
 </div>
@@ -280,6 +280,8 @@
             <button class="option" id="jsonBtn">Télécharger<br></button>
         <button id="btnExportToCsv" type="button" class="button option">Export en CSV</button>
 
+        <button id="pdfBtn" type="button" class="button option">Export en PDF</button>
+
         <input type="button" class="option" value="Ajouter colonne" onclick="addColumn('tableau')" />
         <input type="button" class="option" value="Supprimer colonne" onclick="deleteColumn('tableau')" />
 
@@ -392,5 +394,31 @@
         }
     }
 </script>
+<!-- export PDF -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+    $("body").on("click", "#pdfBtn", function () {
+        $("#divTableau")
+            .removeClass('tableFixHead')
+        html2canvas($('#tableau')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 350
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("tableau.pdf");
+                $("#divTableau")
+                    .addClass('tableFixHead')
+            }
+        });
+    });
+
+</script>
 
 </body>
+</html>
