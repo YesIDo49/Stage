@@ -276,9 +276,13 @@
         <button class="option" onclick="logoTerre()" id="logoTerre">Armee de terre</button>
         <button class="option" onclick="logoAir()" id="logoAir">Armee de l'air et de l'espace</button>
         <button class="option" onclick="logoMer()" id="logoMer">Marine nationale</button>
-        <div id="dlJson">--><br>
+        --><br><div id="dlJson">
             <button class="option" id="jsonBtn">Télécharger<br></button>
         <button id="btnExportToCsv" type="button" class="button option">Export en CSV</button>
+
+        <input type="button" class="option" value="Ajouter colonne" onclick="addColumn('tableau')" />
+        <input type="button" class="option" value="Supprimer colonne" onclick="deleteColumn('tableau')" />
+
         </div>
 
         <br>
@@ -360,6 +364,31 @@
             URL.revokeObjectURL(blobUrl);
         }, 500);
     });
+
+    function addColumn(tblId)
+    {
+        var tblHeadObj = document.getElementById(tblId).tHead;
+        for (var h=0; h<tblHeadObj.rows.length; h++) {
+            var newTH = document.createElement('th');
+            tblHeadObj.rows[h].appendChild(newTH);
+            newTH.innerHTML = '[th] row:' + h + ', cell: ' + (tblHeadObj.rows[h].cells.length - 1)
+        }
+
+        var tblBodyObj = document.getElementById(tblId).tBodies[0];
+        for (var i=0; i<tblBodyObj.rows.length; i++) {
+            var newCell = tblBodyObj.rows[i].insertCell(-1);
+            newCell.innerHTML = '[td] row:' + i + ', cell: ' + (tblBodyObj.rows[i].cells.length - 1)
+        }
+    }
+    function deleteColumn(tblId)
+    {
+        var allRows = document.getElementById(tblId).rows;
+        for (var i=0; i<allRows.length; i++) {
+            if (allRows[i].cells.length > 1) {
+                allRows[i].deleteCell(-1);
+            }
+        }
+    }
 </script>
 
 </body>
